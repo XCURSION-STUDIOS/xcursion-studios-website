@@ -4,18 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>XCURSION</title>
-
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Cormorant+SC:wght@300;400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
-
-  <!-- Styles -->
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-
-<!-- ─── BACKGROUND ─── -->
 <div class="bg-blobs">
   <div class="bg-blob" style="width:65%;height:60%;top:5%;left:-12%;background:radial-gradient(circle,rgba(185,100,18,0.88) 0%,rgba(130,60,8,0.5) 55%,transparent 100%);--anim:bb1;--dur:8s;"></div>
   <div class="bg-blob" style="width:45%;height:50%;top:48%;left:2%;background:radial-gradient(circle,rgba(160,75,12,0.72) 0%,rgba(110,48,6,0.4) 55%,transparent 100%);--anim:bb3;--dur:11s;"></div>
@@ -26,13 +20,10 @@
 </div>
 <div class="bg-dots"></div>
 <div class="bg-grain"></div>
-
-<!-- ─── UI OVERLAYS ─── -->
 <div class="transition-veil" id="transitionVeil"></div>
 <div class="cursor" id="cursor"></div>
 <div class="cursor-ring" id="cursorRing"></div>
 
-<!-- ─── NAV ─── -->
 <nav>
   <a href="#" class="nav-logo" id="logoLink">Xcursion</a>
   <ul class="nav-links">
@@ -44,8 +35,6 @@
     <li><a href="#" data-section="5">Contact</a></li>
   </ul>
 </nav>
-
-<!-- ─── PROGRESS DOTS ─── -->
 <div class="section-progress" id="sectionProgress">
   <div class="progress-dot active" data-section="0"></div>
   <div class="progress-dot" data-section="1"></div>
@@ -55,172 +44,229 @@
   <div class="progress-dot" data-section="5"></div>
 </div>
 
-<!-- ─── MAIN SCROLL CONTAINER ─── -->
 <div class="scroll-container">
 <div class="sections-wrapper" id="sectionsWrapper">
 
-  <!-- ─── 0: HOME ─── -->
-  <div class="section" id="section-home">
-    <div style="flex:1;display:flex;flex-direction:column;justify-content:flex-end;">
-      <div class="hero-eyebrow">A philosophy of constant movement</div>
-      <h1 class="hero-title">X<em>cur</em><br>sion</h1>
-      <div class="hero-bottom">
-        <p class="hero-sub">The whole point is to savour the journey — infinite potential, shrouded in mystery. Much like space.</p>
-        <div class="hero-cta">
-          <button class="btn-line" data-goto="4">Explore Work</button>
-          <button class="btn-line" data-goto="1">Our Philosophy</button>
-        </div>
-      </div>
-    </div>
-    <div class="marquee-wrap">
-      <div class="marquee-track">
-        <div class="marquee-item">Xcursion <span class="sep"></span></div>
-        <div class="marquee-item">Constant Improvement <span class="sep"></span></div>
-        <div class="marquee-item">Creative Company <span class="sep"></span></div>
-        <div class="marquee-item">Savour the Journey <span class="sep"></span></div>
-        <div class="marquee-item">Infinite Potential <span class="sep"></span></div>
-        <div class="marquee-item">Xcursion <span class="sep"></span></div>
-        <div class="marquee-item">Constant Improvement <span class="sep"></span></div>
-        <div class="marquee-item">Creative Company <span class="sep"></span></div>
-        <div class="marquee-item">Savour the Journey <span class="sep"></span></div>
-        <div class="marquee-item">Infinite Potential <span class="sep"></span></div>
-      </div>
-    </div>
-    <div class="scroll-hint"><span>Scroll</span><div class="scroll-hint-line"></div></div>
-  </div>
-
-  <!-- ─── 1: ABOUT ─── -->
-  <div class="section scrollable" id="section-about">
-    <div style="padding:120px 0 80px;">
-      <div class="section-label">Who We Are</div>
-      <h2 class="section-title reveal">About<br><em>Us</em></h2>
-      <div class="about-grid">
-        <div class="about-text reveal">
-          <p>XCURSION isn't just a creative company — it's a philosophy centred around constant improvement, no matter how slow, no matter how small. We make things. We share things. We think out loud.</p>
-          <div class="about-pullquote">"A journey is full of infinite potential and possibilities, and yet still shrouded in mystery. Much like space."</div>
-          <p>We do visual work. We build apps. We write about travel, games, books, and the strange mechanics of being alive.</p>
-          <br>
-          <button class="btn-line" data-goto="5">Get in touch &rarr;</button>
-        </div>
-        <div class="about-values reveal">
-          <div class="value-item"><div class="value-num">01</div><div class="value-name">Constant Movement</div><div class="value-desc">Not perfection. Not speed. Just consistent, honest progress in whatever form it takes today.</div></div>
-          <div class="value-item"><div class="value-num">02</div><div class="value-name">Radical Honesty</div><div class="value-desc">We review things we actually use. We share opinions we actually hold. No sponsored vibes.</div></div>
-          <div class="value-item"><div class="value-num">03</div><div class="value-name">Creative Range</div><div class="value-desc">Design, code, words, photography, merch — the excursion goes wherever curiosity points.</div></div>
-          <div class="value-item"><div class="value-num">04</div><div class="value-name">Personal Touch</div><div class="value-desc">This is a company, yes. But behind it are humans who feel things, make mistakes, and keep going.</div></div>
-        </div>
+<!-- 0: HOME -->
+<div class="section" id="section-home">
+  <div style="flex:1;display:flex;flex-direction:column;justify-content:flex-end;">
+    <div class="hero-eyebrow">A philosophy of constant movement</div>
+    <h1 class="hero-title">X<em>cur</em><br>sion</h1>
+    <div class="hero-bottom">
+      <p class="hero-sub">The whole point is to savour the journey — infinite potential, shrouded in mystery. Much like space.</p>
+      <div class="hero-cta">
+        <button class="btn-line" data-goto="4">Explore Work</button>
+        <button class="btn-line" data-goto="1">Our Philosophy</button>
       </div>
     </div>
   </div>
+  <div class="marquee-wrap">
+    <div class="marquee-track">
+      <div class="marquee-item">Xcursion <span class="sep"></span></div>
+      <div class="marquee-item">Constant Improvement <span class="sep"></span></div>
+      <div class="marquee-item">Creative Company <span class="sep"></span></div>
+      <div class="marquee-item">Savour the Journey <span class="sep"></span></div>
+      <div class="marquee-item">Infinite Potential <span class="sep"></span></div>
+      <div class="marquee-item">Xcursion <span class="sep"></span></div>
+      <div class="marquee-item">Constant Improvement <span class="sep"></span></div>
+      <div class="marquee-item">Creative Company <span class="sep"></span></div>
+      <div class="marquee-item">Savour the Journey <span class="sep"></span></div>
+      <div class="marquee-item">Infinite Potential <span class="sep"></span></div>
+    </div>
+  </div>
+  <div class="scroll-hint"><span>Scroll</span><div class="scroll-hint-line"></div></div>
+</div>
 
-  <!-- ─── 2: SHOP ─── -->
-  <div class="section scrollable" id="section-shop">
-    <div style="padding:120px 0 80px;">
-      <div class="section-label">Merch</div>
-      <h2 class="section-title reveal">Shop</h2>
-      <div class="shop-grid">
-        <div class="shop-item reveal">
-          <div class="shop-img">
-            <div class="shop-img-label">I</div>
-            <div class="shop-overlay"><button class="btn-line" data-goto="5">Inquire to Buy</button></div>
-          </div>
-          <div class="shop-meta">
-            <div><div class="shop-name">The Explorer Tee</div><div class="shop-sub">Heavyweight 100% Cotton &middot; Unisex</div></div>
-            <div class="shop-price">&pound;35</div>
-          </div>
-        </div>
-        <div class="shop-item reveal" style="transition-delay:.1s">
-          <div class="shop-img">
-            <div class="shop-img-label">II</div>
-            <div class="shop-overlay"><button class="btn-line" data-goto="5">Inquire to Buy</button></div>
-          </div>
-          <div class="shop-meta">
-            <div><div class="shop-name">The Orbit Tee</div><div class="shop-sub">Premium Slim Fit &middot; Limited Run</div></div>
-            <div class="shop-price">&pound;40</div>
-          </div>
-        </div>
+<!-- 1: ABOUT -->
+<div class="section scrollable" id="section-about">
+  <div style="padding:120px 0 80px;">
+    <div class="section-label">Who We Are</div>
+    <h2 class="section-title reveal">About<br><em>Us</em></h2>
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <p>XCURSION isn't just a creative company — it's a philosophy centred around constant improvement, no matter how slow, no matter how small. We make things. We share things. We think out loud.</p>
+        <div class="about-pullquote">"A journey is full of infinite potential and possibilities, and yet still shrouded in mystery. Much like space."</div>
+        <p>We do visual work. We build apps. We write about travel, games, books, and the strange mechanics of being alive.</p>
+        <br>
+        <button class="btn-line" data-goto="5">Get in touch &rarr;</button>
       </div>
-      <div class="shop-notice reveal">
-        <p>The shop is not yet live for direct purchases. Reach out directly and we'll sort you out personally.</p>
-        <button class="btn-line" data-goto="5">Contact to Order &rarr;</button>
+      <div class="about-values reveal">
+        <div class="value-item"><div class="value-num">01</div><div class="value-name">Constant Movement</div><div class="value-desc">Not perfection. Not speed. Just consistent, honest progress in whatever form it takes today.</div></div>
+        <div class="value-item"><div class="value-num">02</div><div class="value-name">Radical Honesty</div><div class="value-desc">We review things we actually use. We share opinions we actually hold. No sponsored vibes.</div></div>
+        <div class="value-item"><div class="value-num">03</div><div class="value-name">Creative Range</div><div class="value-desc">Design, code, words, photography, merch — the excursion goes wherever curiosity points.</div></div>
+        <div class="value-item"><div class="value-num">04</div><div class="value-name">Personal Touch</div><div class="value-desc">This is a company, yes. But behind it are humans who feel things, make mistakes, and keep going.</div></div>
       </div>
     </div>
   </div>
+</div>
 
-  <!-- ─── 3: BLOG ─── -->
-  <div class="section scrollable" id="section-blog">
-    <div style="padding:120px 0 80px;">
-      <div class="section-label">Writing</div>
-      <h2 class="section-title reveal">Blog</h2>
-      <div class="blog-filters">
-        <button class="blog-filter active">All</button>
-        <button class="blog-filter">Travel</button>
-        <button class="blog-filter">Reviews</button>
-        <button class="blog-filter">Thoughts</button>
-      </div>
-      <div class="blog-grid reveal">
-        <div class="blog-card"><div class="blog-cat">Travel</div><h3 class="blog-title">Finding stillness in Kyoto — a city that teaches you to slow down</h3><p class="blog-excerpt">Somewhere between the third temple and a bowl of ramen I didn't recognise, I stopped trying to optimise the trip.</p><div class="blog-footer"><span>Feb 2025 &middot; 8 min</span><a href="#" class="blog-read">Read &rarr;</a></div></div>
-        <div class="blog-card"><div class="blog-cat">Review &middot; Game</div><h3 class="blog-title">Hollow Knight and the philosophy of getting lost on purpose</h3><p class="blog-excerpt">A game that rewards you for not knowing what you're doing. Which, honestly, sounds about right.</p><div class="blog-footer"><span>Jan 2025 &middot; 6 min</span><a href="#" class="blog-read">Read &rarr;</a></div></div>
-        <div class="blog-card"><div class="blog-cat">Philosophy</div><h3 class="blog-title">On the feeling of being behind, and why it's probably wrong</h3><p class="blog-excerpt">You're not behind. There's no finish line. This is the excursion — the whole thing is the point.</p><div class="blog-footer"><span>Dec 2024 &middot; 4 min</span><a href="#" class="blog-read">Read &rarr;</a></div></div>
-        <div class="blog-card"><div class="blog-cat">Review &middot; Book</div><h3 class="blog-title">The Almanack of Naval Ravikant — the parts that actually stuck</h3><p class="blog-excerpt">Not a summary. Just the parts that hit different at 2am when you're second-guessing your decisions.</p><div class="blog-footer"><span>Nov 2024 &middot; 5 min</span><a href="#" class="blog-read">Read &rarr;</a></div></div>
-        <div class="blog-card"><div class="blog-cat">Travel</div><h3 class="blog-title">48 hours in Lagos: everything they didn't put in the travel guides</h3><p class="blog-excerpt">Chaotic, warm, overwhelming, electric. Come with a plan. Leave the plan at the airport.</p><div class="blog-footer"><span>Oct 2024 &middot; 7 min</span><a href="#" class="blog-read">Read &rarr;</a></div></div>
-        <div class="blog-card"><div class="blog-cat">Random Thoughts</div><h3 class="blog-title">Why boredom is the most underrated creative tool we have</h3><p class="blog-excerpt">The best ideas I've had happened in the spaces where nothing was demanding my attention.</p><div class="blog-footer"><span>Sep 2024 &middot; 3 min</span><a href="#" class="blog-read">Read &rarr;</a></div></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ─── 4: PROJECTS ─── -->
-  <div class="section scrollable" id="section-projects">
-    <div style="padding:120px 0 80px;">
-      <div class="section-label">Our Work</div>
-      <h2 class="section-title reveal">Projects</h2>
-      <div class="proj-tabs">
-        <button class="proj-tab active" onclick="switchTab(this,'visuals')">Visuals</button>
-        <button class="proj-tab" onclick="switchTab(this,'coding')">Code &amp; Apps</button>
-      </div>
-      <div id="proj-visuals" class="proj-visual-grid reveal">
-        <div class="proj-card large"><div class="proj-inner"><div class="proj-bg g1"><span style="font-family:'Cormorant SC',serif;font-size:clamp(24px,3.5vw,48px);color:rgba(237,232,224,0.06);letter-spacing:0.1em;font-weight:300;">ORBIT SERIES</span></div></div><div class="proj-label"><div class="proj-label-name">Orbit Poster Series</div><div class="proj-label-type">Graphic Design &middot; 2024</div></div></div>
-        <div class="proj-card medium"><div class="proj-inner"><div class="proj-bg g2"></div></div><div class="proj-label"><div class="proj-label-name">Street Photography</div><div class="proj-label-type">Photography &middot; 2024</div></div></div>
-        <div class="proj-card small"><div class="proj-inner"><div class="proj-bg g3"></div></div><div class="proj-label"><div class="proj-label-name">Vibes Vol. 1</div><div class="proj-label-type">Mood / Visual &middot; 2024</div></div></div>
-        <div class="proj-card small"><div class="proj-inner"><div class="proj-bg g4"></div></div><div class="proj-label"><div class="proj-label-name">Brand Study</div><div class="proj-label-type">Graphic Design &middot; 2023</div></div></div>
-        <div class="proj-card small"><div class="proj-inner"><div class="proj-bg g5"></div></div><div class="proj-label"><div class="proj-label-name">Texture Pack</div><div class="proj-label-type">Visual Assets &middot; 2024</div></div></div>
-        <div class="proj-card wide"><div class="proj-inner"><div class="proj-bg" style="background:linear-gradient(90deg,rgba(7,6,13,1) 0%,rgba(62,28,148,0.3) 30%,rgba(185,100,18,0.25) 60%,rgba(7,6,13,1) 100%);display:flex;align-items:center;justify-content:center;"><span style="font-family:'Cormorant SC',serif;font-size:clamp(14px,2vw,32px);letter-spacing:0.4em;color:rgba(237,232,224,0.06);font-weight:300;">XCURSION &middot; CREATIVE STUDIO</span></div></div><div class="proj-label"><div class="proj-label-name">Xcursion Brand Identity</div><div class="proj-label-type">Branding &middot; 2024</div></div></div>
-      </div>
-      <div id="proj-coding" class="code-grid reveal" style="display:none;">
-        <div class="code-card"><div class="code-status"><span class="status-dot live"></span> Live</div><div class="code-name">HabitQuest</div><div class="code-desc">A gamified habit tracker that turns building routines into an actual RPG. Characters, quests, levels — because spreadsheets are boring.</div><div class="code-tags"><span class="code-tag">React</span><span class="code-tag">Vite</span><span class="code-tag">Mobile</span></div></div>
-        <div class="code-card"><div class="code-status"><span class="status-dot"></span> WIP</div><div class="code-name">Unnamed Tool</div><div class="code-desc">Something brewing. Creative workflows and not losing your ideas to the void.</div><div class="code-tags"><span class="code-tag">TBD</span><span class="code-tag">Coming Soon</span></div></div>
-        <div class="code-card"><div class="code-status"><span class="status-dot"></span> Concept</div><div class="code-name">Blog Engine</div><div class="code-desc">Custom CMS built for how we actually write — fast, personal, feels like a notebook not a dashboard.</div><div class="code-tags"><span class="code-tag">Next.js</span><span class="code-tag">MDX</span><span class="code-tag">Open Source</span></div></div>
-        <div class="code-card"><div class="code-status"><span class="status-dot live"></span> Live</div><div class="code-name">This Site</div><div class="code-desc">Hand-coded, no templates, animated grain background, custom cursor. Eat your heart out, Squarespace.</div><div class="code-tags"><span class="code-tag">HTML</span><span class="code-tag">CSS</span><span class="code-tag">Vanilla JS</span></div></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ─── 5: CONTACT ─── -->
-  <div class="section" id="section-contact" style="position:relative;">
-    <div class="contact-grid" style="padding:120px 0 0;">
+<!-- 2: SHOP -->
+<div class="section scrollable" id="section-shop">
+  <div style="padding:120px 0 80px;">
+    <div class="shop-section-header reveal">
       <div>
-        <div class="section-label">Get in Touch</div>
-        <h2 class="contact-title reveal">Let's<br><em>Talk</em></h2>
-        <p class="contact-sub reveal">Got a project? Want to buy a shirt? Just want to chat about a game, book, or the meaning of it all?</p>
-        <a href="mailto:hello@xcursion.com" class="btn-line reveal">hello@xcursion.com</a>
+        <div class="section-label">Merch</div>
+        <h2 class="section-title" style="margin-bottom:0;">Shop</h2>
       </div>
-      <div class="contact-links reveal">
-        <a href="#" class="contact-link">Instagram <span>&#8599;</span></a>
-        <a href="#" class="contact-link">Twitter / X <span>&#8599;</span></a>
-        <a href="#" class="contact-link">LinkedIn <span>&#8599;</span></a>
-        <button class="contact-link" data-goto="3">Read the Blog <span>&rarr;</span></button>
-        <button class="contact-link" data-goto="2">Shop the Merch <span>&rarr;</span></button>
-      </div>
+      <a href="shop/index.html" class="btn-line">View all items &rarr;</a>
     </div>
-    <div class="footer-bar">
-      <div class="footer-logo">Xcursion</div>
-      <div class="footer-copy">&copy; 2025 Xcursion &middot; Savour the journey.</div>
+
+    <!-- Featured item — alternates via JS on load -->
+    <div class="shop-featured reveal" id="shopFeatured">
+      <!-- Explorer Tee (shown on even days) -->
+      <div class="shop-featured-item" data-item="explorer">
+        <div class="shop-featured-img">
+          <div class="shop-featured-label">I</div>
+          <div class="shop-featured-badge">Featured</div>
+        </div>
+        <div class="shop-featured-details">
+          <div class="shop-featured-cat">Heavyweight Cotton &middot; Unisex</div>
+          <h3 class="shop-featured-name">The Explorer<br>Tee</h3>
+          <p class="shop-featured-desc">Built for movement. 100% heavyweight cotton with a relaxed silhouette — the kind of tee that gets better with every wash. Printed with the Xcursion wordmark in faded ink.</p>
+          <div class="shop-featured-price">&pound;35</div>
+          <div class="shop-featured-actions">
+            <a href="shop/explorer-tee.html" class="btn-line">View Product &rarr;</a>
+          </div>
+        </div>
+      </div>
+      <!-- Orbit Tee (shown on odd days) -->
+      <div class="shop-featured-item" data-item="orbit" style="display:none;">
+        <div class="shop-featured-img orbit">
+          <div class="shop-featured-label">II</div>
+          <div class="shop-featured-badge">Limited Run</div>
+        </div>
+        <div class="shop-featured-details">
+          <div class="shop-featured-cat">Premium Slim Fit &middot; Limited Run</div>
+          <h3 class="shop-featured-name">The Orbit<br>Tee</h3>
+          <p class="shop-featured-desc">A slimmer cut with a cleaner finish. Same philosophy, different silhouette. Limited run — once they're gone, they're gone. Embroidered logo, no print.</p>
+          <div class="shop-featured-price">&pound;40</div>
+          <div class="shop-featured-actions">
+            <a href="shop/orbit-tee.html" class="btn-line">View Product &rarr;</a>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
+</div>
 
-</div><!-- /sections-wrapper -->
-</div><!-- /scroll-container -->
+<!-- 3: BLOG -->
+<div class="section scrollable" id="section-blog">
+  <div style="padding:120px 0 80px;">
+    <div class="blog-section-header reveal">
+      <div>
+        <div class="section-label">Writing</div>
+        <h2 class="section-title" style="margin-bottom:0;">Blog</h2>
+      </div>
+      <a href="blog/index.html" class="btn-line">View all posts &rarr;</a>
+    </div>
+    <div class="blog-preview-grid reveal">
+      <a href="blog/kyoto.html" class="blog-preview-card">
+        <div class="blog-preview-accent" style="background:radial-gradient(ellipse at 30% 50%,rgba(185,100,18,0.3) 0%,transparent 70%);"></div>
+        <div class="blog-preview-cat">Travel</div>
+        <h3 class="blog-preview-title">Finding stillness in Kyoto — a city that teaches you to slow down</h3>
+        <p class="blog-preview-excerpt">Somewhere between the third temple and a bowl of ramen I didn't recognise, I stopped trying to optimise the trip.</p>
+        <div class="blog-preview-footer"><span>Feb 2025</span><span>8 min read &rarr;</span></div>
+      </a>
+      <a href="blog/hollow-knight.html" class="blog-preview-card">
+        <div class="blog-preview-accent" style="background:radial-gradient(ellipse at 70% 30%,rgba(62,28,148,0.35) 0%,transparent 70%);"></div>
+        <div class="blog-preview-cat">Review &middot; Game</div>
+        <h3 class="blog-preview-title">Hollow Knight and the philosophy of getting lost on purpose</h3>
+        <p class="blog-preview-excerpt">A game that rewards you for not knowing what you're doing. Which, honestly, sounds about right.</p>
+        <div class="blog-preview-footer"><span>Jan 2025</span><span>6 min read &rarr;</span></div>
+      </a>
+      <a href="blog/being-behind.html" class="blog-preview-card">
+        <div class="blog-preview-accent" style="background:radial-gradient(ellipse at 50% 70%,rgba(62,28,148,0.25) 0%,rgba(185,100,18,0.12) 60%,transparent 100%);"></div>
+        <div class="blog-preview-cat">Philosophy</div>
+        <h3 class="blog-preview-title">On the feeling of being behind, and why it's probably wrong</h3>
+        <p class="blog-preview-excerpt">You're not behind. There's no finish line. This is the excursion — the whole thing is the point.</p>
+        <div class="blog-preview-footer"><span>Dec 2024</span><span>4 min read &rarr;</span></div>
+      </a>
+      <a href="blog/naval.html" class="blog-preview-card">
+        <div class="blog-preview-accent" style="background:radial-gradient(ellipse at 20% 60%,rgba(185,100,18,0.28) 0%,transparent 70%);"></div>
+        <div class="blog-preview-cat">Review &middot; Book</div>
+        <h3 class="blog-preview-title">The Almanack of Naval Ravikant — the parts that actually stuck</h3>
+        <p class="blog-preview-excerpt">Not a summary. Just the parts that hit different at 2am when you're second-guessing your decisions.</p>
+        <div class="blog-preview-footer"><span>Nov 2024</span><span>5 min read &rarr;</span></div>
+      </a>
+    </div>
+  </div>
+</div>
 
-<!-- Scripts (deferred so DOM is ready) -->
-<script src="js/main.js" defer></script>
-</body>
-</html>
+<!-- 4: PROJECTS -->
+<div class="section scrollable" id="section-projects">
+  <div style="padding:120px 0 80px;">
+    <div class="proj-section-header reveal">
+      <div>
+        <div class="section-label">Our Work</div>
+        <h2 class="section-title" style="margin-bottom:0;">Projects</h2>
+      </div>
+      <a href="projects/index.html" class="btn-line">View all projects &rarr;</a>
+    </div>
+
+    <!-- Featured: Orbit Poster Series -->
+    <a href="projects/orbit-poster-series.html" class="proj-featured reveal">
+      <div class="proj-featured-img">
+        <div class="proj-featured-bg g1">
+          <span class="proj-featured-watermark">ORBIT SERIES</span>
+        </div>
+        <div class="proj-featured-overlay"></div>
+        <div class="proj-featured-meta">
+          <div class="proj-featured-tag">Featured &middot; Graphic Design</div>
+          <div class="proj-featured-arrow">&#8599;</div>
+        </div>
+      </div>
+      <div class="proj-featured-footer">
+        <div>
+          <div class="proj-featured-name">Orbit Poster Series</div>
+          <div class="proj-featured-sub">A series of spatial gradient posters exploring depth, colour tension, and the aesthetics of the void &mdash; 2024</div>
+        </div>
+        <div class="proj-featured-cta">View Project &rarr;</div>
+      </div>
+    </a>
+
+    <!-- Mini grid: other projects -->
+    <div class="proj-mini-grid reveal">
+      <a href="projects/xcursion-brand.html" class="proj-mini-card">
+        <div class="proj-mini-img" style="background:radial-gradient(ellipse at 50% 50%,rgba(62,28,148,0.5) 0%,rgba(185,100,18,0.2) 60%,rgba(7,6,13,1) 100%);"></div>
+        <div class="proj-mini-info">
+          <div class="proj-mini-name">Xcursion Brand Identity</div>
+          <div class="proj-mini-type">Branding &middot; 2024</div>
+        </div>
+      </a>
+      <a href="projects/habitquest.html" class="proj-mini-card">
+        <div class="proj-mini-img" style="background:radial-gradient(ellipse at 40% 60%,rgba(185,100,18,0.45) 0%,rgba(62,28,148,0.25) 55%,rgba(7,6,13,1) 100%);"></div>
+        <div class="proj-mini-info">
+          <div class="proj-mini-name">HabitQuest App</div>
+          <div class="proj-mini-type">Code &middot; React &middot; 2024</div>
+        </div>
+      </a>
+      <a href="projects/index.html" class="proj-mini-card proj-mini-all">
+        <div class="proj-mini-all-inner">
+          <span>All Projects</span>
+          <span style="font-size:22px;">&#8599;</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- 5: CONTACT -->
+<div class="section" id="section-contact" style="position:relative;">
+  <div class="contact-grid" style="padding:120px 0 0;">
+    <div>
+      <div class="section-label">Get in Touch</div>
+      <h2 class="contact-title reveal">Let's<br><em>Talk</em></h2>
+      <p class="contact-sub reveal">Got a project? Want to buy a shirt? Just want to chat about a game, book, or the meaning of it all?</p>
+      <a href="/cdn-cgi/l/email-protection#5d35383131321d253e282f2e343233733e3230" class="btn-line reveal"><span class="__cf_email__" data-cfemail="7018151c1c1f300813050203191f1e5e131f1d">[email&#160;protected]</span></a>
+    </div>
+    <div class="contact-links reveal">
+      <a href="#" class="contact-link">Instagram <span>&#8599;</span></a>
+      <a href="#" class="contact-link">Twitter / X <span>&#8599;</span></a>
+      <a href="#" class="contact-link">LinkedIn <span>&#8599;</span></a>
+      <button class="contact-link" data-goto="3">Read the Blog <span>&rarr;</span></button>
+      <button class="contact-link" data-goto="2">Shop the Merch <span>&rarr;</span></button>
+    </div>
+  </div>
+  <div class="footer-bar">
+    <div class="footer-logo">Xcursion</div>
+    <div class="footer-copy">&copy; 2025
