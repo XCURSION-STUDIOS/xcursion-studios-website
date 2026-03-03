@@ -75,4 +75,23 @@ let mx=0,my=0,rx=0,ry=0;
 document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cursor.style.left=mx+'px';cursor.style.top=my+'px';});
 (function loop(){rx+=(mx-rx)*.1;ry+=(my-ry)*.1;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(loop);})();
 document.addEventListener('mouseover',e=>{const h=e.target.closest('a,button');cursor.style.width=h?'18px':'8px';cursor.style.height=h?'18px':'8px';ring.style.width=h?'52px':'32px';ring.style.height=h?'52px':'32px';});
-</script></body></html>
+</script>
+<script>
+// Trigger .reveal elements on sub-pages via IntersectionObserver
+(function(){
+  var els = document.querySelectorAll('.reveal');
+  if(!els.length) return;
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); }
+      });
+    },{threshold:0.1});
+    els.forEach(function(el){ io.observe(el); });
+  } else {
+    // Fallback: just show everything
+    els.forEach(function(el){ el.classList.add('visible'); });
+  }
+})();
+</script>
+</body></html>

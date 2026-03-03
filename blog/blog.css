@@ -65,3 +65,7 @@
   .post-nav{padding:32px 24px;flex-direction:column;align-items:flex-start;}
   .page-footer{padding:24px;}
 }
+/* ─── REVEAL: sub-pages use IntersectionObserver instead of scroll engine ─── */
+/* Start visible by default; JS below re-adds the animation for scroll-in effect */
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}

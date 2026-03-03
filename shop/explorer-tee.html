@@ -125,4 +125,23 @@ function submitInquiry(product) {
   document.querySelectorAll('.form-group, .form-row').forEach(function(el){ el.style.display='none'; });
   document.getElementById('formSuccess').style.display = 'block';
 }
-</script></body></html>
+</script>
+<script>
+// Trigger .reveal elements on sub-pages via IntersectionObserver
+(function(){
+  var els = document.querySelectorAll('.reveal');
+  if(!els.length) return;
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); }
+      });
+    },{threshold:0.1});
+    els.forEach(function(el){ io.observe(el); });
+  } else {
+    // Fallback: just show everything
+    els.forEach(function(el){ el.classList.add('visible'); });
+  }
+})();
+</script>
+</body></html>
