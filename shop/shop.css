@@ -1,5 +1,5 @@
 :root{--cream:#ede8e0;--cream-dim:rgba(237,232,224,0.5);--cream-faint:rgba(237,232,224,0.2);--white:#f8f4ee;}
-.page-body{background:#07060d;color:var(--cream);font-family:'DM Mono',monospace;overflow-x:hidden;cursor:none;}
+.page-body{background:#07060d;color:var(--cream);font-family:'DM Mono',monospace;overflow-x:hidden;overflow-y:auto;cursor:none;}
 .page-nav{position:fixed;top:0;left:0;right:0;z-index:500;padding:32px 56px;display:flex;justify-content:space-between;align-items:center;background:linear-gradient(to bottom,rgba(7,6,13,0.92) 0%,transparent 100%);}
 .page-nav .nav-logo{font-family:'Cormorant SC',serif;font-weight:300;font-size:20px;letter-spacing:0.35em;color:var(--cream);text-decoration:none;cursor:none;transition:opacity .3s;}
 .page-nav .nav-logo:hover{opacity:0.6;}
@@ -13,7 +13,7 @@
 .page-footer .footer-copy{font-size:10px;color:var(--cream-faint);letter-spacing:0.12em;}
 
 /* ─── SHOP INDEX ─── */
-.shop-index-main{max-width:1200px;margin:0 auto;padding:160px 56px 80px;}
+.shop-index-main{position:relative;z-index:3;max-width:1200px;margin:0 auto;padding:160px 56px 80px;}
 .shop-index-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:64px;}
 .shop-index-title{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(60px,8vw,112px);line-height:0.9;letter-spacing:-0.02em;color:var(--white);}
 .shop-index-title em{font-style:italic;color:var(--cream-dim);}
@@ -38,7 +38,7 @@
 .shop-notice-bar p{font-size:13px;color:var(--cream-faint);line-height:1.7;max-width:520px;}
 
 /* ─── PRODUCT PAGE ─── */
-.product-main{max-width:1200px;margin:0 auto;padding:120px 56px 80px;}
+.product-main{position:relative;z-index:3;max-width:1200px;margin:0 auto;padding:120px 56px 80px;}
 .product-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--cream-faint);min-height:600px;}
 .product-img{position:relative;display:flex;align-items:center;justify-content:center;border-right:1px solid var(--cream-faint);overflow:hidden;min-height:560px;}
 .product-img-label{font-family:'Cormorant SC',serif;font-size:clamp(100px,18vw,220px);color:rgba(237,232,224,0.04);font-weight:300;letter-spacing:-0.02em;user-select:none;}

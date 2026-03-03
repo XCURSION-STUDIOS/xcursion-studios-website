@@ -70,14 +70,11 @@ function triggerReveals(index) {
 }
 
 // ─── SCROLL / WHEEL ───────────────────────────────────────────────────────────
-// Accumulate delta — prevents trackpad from firing multiple jumps at once
-let wheelAccum = 0;
-let wheelTimer = null;
-const WHEEL_THRESHOLD = 180;
+let wheelLocked = false;
 
 document.addEventListener('wheel', e => {
   e.preventDefault();
-  if (transitioning) return;
+  if (transitioning || wheelLocked) return;
 
   const section      = document.querySelectorAll('.section')[current];
   const isScrollable = section && section.classList.contains('scrollable');
@@ -89,15 +86,11 @@ document.addEventListener('wheel', e => {
     if (e.deltaY < 0 && !atTop)    return;
   }
 
-  wheelAccum += e.deltaY;
+  if (Math.abs(e.deltaY) < 30) return;
 
-  clearTimeout(wheelTimer);
-  wheelTimer = setTimeout(() => {
-    if (Math.abs(wheelAccum) >= WHEEL_THRESHOLD) {
-      goTo(wheelAccum > 0 ? current + 1 : current - 1);
-    }
-    wheelAccum = 0;
-  }, 150);
+  wheelLocked = true;
+  setTimeout(() => { wheelLocked = false; }, 1000);
+  goTo(e.deltaY > 0 ? current + 1 : current - 1);
 
 }, { passive: false });
 
