@@ -69,3 +69,4 @@
 /* Start visible by default; JS below re-adds the animation for scroll-in effect */
 .reveal{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease;}
 .reveal.visible{opacity:1;transform:translateY(0);}
+.bg-blobs{background-image:url("../../assets/bg.png")!important;}

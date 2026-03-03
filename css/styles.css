@@ -8,8 +8,8 @@ body:not(.page-body){overflow:hidden;height:100vh;}
 .page-body{overflow-x:hidden;overflow-y:auto;height:auto;min-height:100vh;}
 
 /* ─── BG ─── */
-.bg-blobs{position:fixed;inset:0;z-index:0;background:#07060d;overflow:hidden;}
-.bg-blob{position:absolute;border-radius:50%;filter:blur(120px) saturate(1.8);animation:var(--anim) var(--dur,8s) ease-in-out infinite alternate;}
+.bg-blobs{position:fixed;inset:0;z-index:0;overflow:hidden;background:#07060d url("../assets/bg.png") center/cover no-repeat;opacity:0.85;}
+.bg-blob{display:none;}
 @keyframes bb1{0%{transform:translate(0%,0%) scale(1);}100%{transform:translate(18%,22%) scale(1.18);}}
 @keyframes bb2{0%{transform:translate(0%,0%) scale(1);}100%{transform:translate(-18%,20%) scale(1.15);}}
 @keyframes bb3{0%{transform:translate(0%,0%) scale(1);}100%{transform:translate(14%,-24%) scale(1.16);}}
