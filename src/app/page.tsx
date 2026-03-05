@@ -1,16 +1,24 @@
 'use client';
+export const dynamic = 'force-dynamic';
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
-import { posts } from '@/data/blog';
-import { projects } from '@/data/projects';
-import { products } from '@/data/shop';
+import { getPosts, getProjects, getProducts } from '@/sanity/queries';
 
 const SECTIONS = 5;
 
 export default function Home() {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const [current, setCurrent] = useState(0);
+  const [posts, setPosts] = useState<any[]>([]);
+  const [projects, setProjects] = useState<any[]>([]);
+  const [products, setProducts] = useState<any[]>([]);
   const transitioning = useRef(false);
+
+  useEffect(() => {
+    getPosts().then(setPosts);
+    getProjects().then(setProjects);
+    getProducts().then(setProducts);
+  }, []);
   const wheelLocked = useRef(false);
   const touchStartY = useRef(0);
 
@@ -71,7 +79,7 @@ export default function Home() {
     }
   }, [current]);
 
-  const featuredProduct = products[new Date().getDate() % 2];
+  const featuredProduct = products.length > 0 ? products[new Date().getDate() % products.length] : null;
 
   return (
     <div className="scroll-container">
@@ -134,7 +142,7 @@ export default function Home() {
               <Link href="/shop" className="btn-line">View all items →</Link>
             </div>
             {/* Featured product */}
-            <Link href={`/shop/${featuredProduct.slug}`} style={{
+            {featuredProduct && <Link href={`/shop/${featuredProduct?.slug?.current}`} style={{
               display: 'grid',
               gridTemplateColumns: '1fr 1fr',
               border: '1px solid var(--cream-faint)',
@@ -148,7 +156,7 @@ export default function Home() {
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                background: featuredProduct.gradient,
+                background: featuredProduct?.gradient,
                 borderRight: '1px solid var(--cream-faint)',
                 overflow: 'hidden',
               }}>
@@ -158,22 +166,22 @@ export default function Home() {
                   color: 'rgba(237,232,224,0.04)',
                   fontWeight: 300,
                   userSelect: 'none',
-                }}>{featuredProduct.label}</span>
+                }}>{featuredProduct?.label}</span>
                 <div style={{
                   position: 'absolute', top: '24px', left: '24px',
                   fontSize: '9px', letterSpacing: '0.25em', textTransform: 'uppercase',
                   color: 'var(--cream-faint)', border: '1px solid var(--cream-faint)',
                   padding: '5px 12px',
-                }}>{featuredProduct.badge}</div>
+                }}>{featuredProduct?.badge}</div>
               </div>
               <div style={{ padding: '48px 52px', display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: '20px' }}>
-                <div style={{ fontSize: '9px', letterSpacing: '0.3em', textTransform: 'uppercase', color: 'var(--cream-faint)' }}>{featuredProduct.category}</div>
-                <h3 style={{ fontFamily: 'var(--font-display)', fontWeight: 300, fontSize: 'clamp(36px,4.5vw,64px)', lineHeight: 0.95, color: 'var(--white)' }}>{featuredProduct.name}</h3>
-                <p style={{ fontFamily: 'var(--font-display)', fontSize: '17px', fontWeight: 300, lineHeight: 1.75, color: 'var(--cream-dim)', maxWidth: '380px' }}>{featuredProduct.description}</p>
-                <div style={{ fontFamily: 'var(--font-display)', fontSize: '32px', fontWeight: 300, color: 'var(--cream-dim)' }}>{featuredProduct.price}</div>
+                <div style={{ fontSize: '9px', letterSpacing: '0.3em', textTransform: 'uppercase', color: 'var(--cream-faint)' }}>{featuredProduct?.category}</div>
+                <h3 style={{ fontFamily: 'var(--font-display)', fontWeight: 300, fontSize: 'clamp(36px,4.5vw,64px)', lineHeight: 0.95, color: 'var(--white)' }}>{featuredProduct?.name}</h3>
+                <p style={{ fontFamily: 'var(--font-display)', fontSize: '17px', fontWeight: 300, lineHeight: 1.75, color: 'var(--cream-dim)', maxWidth: '380px' }}>{featuredProduct?.description}</p>
+                <div style={{ fontFamily: 'var(--font-display)', fontSize: '32px', fontWeight: 300, color: 'var(--cream-dim)' }}>{featuredProduct?.price}</div>
                 <span className="btn-line" style={{ alignSelf: 'flex-start' }}>View Product →</span>
               </div>
-            </Link>
+            </Link>}
           </div>
         </div>
 
@@ -189,7 +197,7 @@ export default function Home() {
             </div>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', border: '1px solid var(--cream-faint)' }}>
               {posts.slice(0, 4).map((post, i) => (
-                <Link key={post.slug} href={`/blog/${post.slug}`} style={{
+                <Link key={post.slug.current} href={`/blog/${post.slug.current}`} style={{
                   padding: '32px 28px',
                   borderRight: i % 2 === 0 ? '1px solid var(--cream-faint)' : 'none',
                   borderBottom: i < 2 ? '1px solid var(--cream-faint)' : 'none',
@@ -219,34 +227,34 @@ export default function Home() {
               <Link href="/projects" className="btn-line">View all projects →</Link>
             </div>
             {/* Featured project */}
-            <Link href={`/projects/${projects[0].slug}`} style={{
+            {projects.length > 0 && <Link href={`/projects/${projects[0]?.slug?.current}`} style={{
               display: 'block', textDecoration: 'none', cursor: 'none', marginBottom: '6px',
             }}>
               <div style={{
                 position: 'relative', width: '100%', aspectRatio: '21/7',
                 overflow: 'hidden', border: '1px solid var(--cream-faint)',
-                background: projects[0].gradient,
+                background: projects[0]?.gradient,
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
               }}>
-                <span style={{ fontFamily: 'var(--font-sc)', fontSize: 'clamp(28px,5vw,72px)', color: 'rgba(237,232,224,0.05)', letterSpacing: '0.18em', fontWeight: 300 }}>{projects[0].label}</span>
+                <span style={{ fontFamily: 'var(--font-sc)', fontSize: 'clamp(28px,5vw,72px)', color: 'rgba(237,232,224,0.05)', letterSpacing: '0.18em', fontWeight: 300 }}>{projects[0]?.label}</span>
                 <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(7,6,13,0.7) 0%, transparent 50%)' }} />
                 <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '24px 28px', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }}>
-                  <span style={{ fontSize: '9px', letterSpacing: '0.28em', textTransform: 'uppercase', color: 'var(--cream-faint)' }}>Featured · {projects[0].category}</span>
+                  <span style={{ fontSize: '9px', letterSpacing: '0.28em', textTransform: 'uppercase', color: 'var(--cream-faint)' }}>Featured · {projects[0]?.category}</span>
                   <span style={{ fontSize: '22px', color: 'var(--cream-faint)' }}>↗</span>
                 </div>
               </div>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '20px 0 0', borderTop: '1px solid var(--cream-faint)' }}>
                 <div>
-                  <div style={{ fontFamily: 'var(--font-sc)', fontSize: '20px', color: 'var(--white)', fontWeight: 300, marginBottom: '6px' }}>{projects[0].name}</div>
-                  <div style={{ fontSize: '11px', color: 'var(--cream-faint)' }}>{projects[0].description}</div>
+                  <div style={{ fontFamily: 'var(--font-sc)', fontSize: '20px', color: 'var(--white)', fontWeight: 300, marginBottom: '6px' }}>{projects[0]?.name}</div>
+                  <div style={{ fontSize: '11px', color: 'var(--cream-faint)' }}>{projects[0]?.description}</div>
                 </div>
                 <span className="btn-line">View Project →</span>
               </div>
-            </Link>
+            </Link>}
             {/* Mini grid */}
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '6px', marginTop: '6px' }}>
               {projects.slice(1, 3).map(p => (
-                <Link key={p.slug} href={`/projects/${p.slug}`} style={{
+                <Link key={p.slug.current} href={`/projects/${p.slug.current}`} style={{
                   textDecoration: 'none', cursor: 'none',
                   border: '1px solid var(--cream-faint)', overflow: 'hidden',
                 }}>
