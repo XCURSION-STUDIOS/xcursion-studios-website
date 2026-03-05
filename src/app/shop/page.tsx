@@ -1,7 +1,13 @@
+'use client';
 import Link from 'next/link';
-import { products } from '@/data/shop';
+import { useEffect, useState } from 'react';
+import { getProducts } from '@/sanity/queries';
 
 export default function ShopPage() {
+  const [products, setProducts] = useState<any[]>([]);
+
+  useEffect(() => { getProducts().then(setProducts); }, []);
+
   return (
     <main className="page-body">
       <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '160px 56px 80px' }}>
@@ -18,10 +24,7 @@ export default function ShopPage() {
         </div>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2px', background: 'var(--cream-faint)' }}>
           {products.map(p => (
-            <Link key={p.slug} href={`/shop/${p.slug}`} style={{
-              background: 'var(--black)', textDecoration: 'none', color: 'inherit', cursor: 'none',
-              display: 'grid', gridTemplateColumns: '1fr 1fr',
-            }}>
+            <Link key={p.slug.current} href={`/shop/${p.slug.current}`} style={{ background: 'var(--black)', textDecoration: 'none', color: 'inherit', cursor: 'none', display: 'grid', gridTemplateColumns: '1fr 1fr' }}>
               <div style={{ aspectRatio: '3/4', display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative', overflow: 'hidden', background: p.gradient, borderRight: '1px solid var(--cream-faint)' }}>
                 <span style={{ fontFamily: 'var(--font-sc)', fontSize: 'clamp(60px,10vw,130px)', color: 'rgba(237,232,224,0.04)', fontWeight: 300 }}>{p.label}</span>
                 <div style={{ position: 'absolute', bottom: '20px', left: '20px', fontSize: '9px', letterSpacing: '0.22em', textTransform: 'uppercase', color: 'var(--cream-faint)', border: '1px solid var(--cream-faint)', padding: '4px 10px' }}>{p.badge}</div>

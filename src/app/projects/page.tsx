@@ -1,28 +1,27 @@
-"use client";
+'use client';
 import Link from 'next/link';
-import { projects } from '@/data/projects';
+import { useEffect, useState } from 'react';
+import { getProjects } from '@/sanity/queries';
 
 export default function ProjectsPage() {
+  const [projects, setProjects] = useState<any[]>([]);
+
+  useEffect(() => { getProjects().then(setProjects); }, []);
+
   return (
     <main className="page-body">
       <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '160px 56px 80px' }}>
         <div className="section-label">Our Work</div>
-        <h1 style={{
-          fontFamily: 'var(--font-display)', fontWeight: 300,
-          fontSize: 'clamp(60px,8vw,112px)', lineHeight: 0.9,
-          letterSpacing: '-0.02em', color: 'var(--white)', marginBottom: '64px',
-        }}>
+        <h1 style={{ fontFamily: 'var(--font-display)', fontWeight: 300, fontSize: 'clamp(60px,8vw,112px)', lineHeight: 0.9, letterSpacing: '-0.02em', color: 'var(--white)', marginBottom: '64px' }}>
           All<br /><em style={{ color: 'var(--cream-dim)' }}>Projects</em>
         </h1>
         <div style={{ display: 'flex', flexDirection: 'column' }}>
           {projects.map((p, i) => (
-            <Link key={p.slug} href={`/projects/${p.slug}`} style={{
-              display: 'grid', gridTemplateColumns: '96px 1fr auto',
-              alignItems: 'center', gap: '32px', padding: '28px 0',
-              borderBottom: '1px solid var(--cream-faint)',
+            <Link key={p.slug.current} href={`/projects/${p.slug.current}`} style={{
+              display: 'grid', gridTemplateColumns: '96px 1fr auto', alignItems: 'center', gap: '32px',
+              padding: '28px 0', borderBottom: '1px solid var(--cream-faint)',
               borderTop: i === 0 ? '1px solid var(--cream-faint)' : 'none',
-              textDecoration: 'none', color: 'inherit', cursor: 'none',
-              transition: 'padding-left 0.4s',
+              textDecoration: 'none', color: 'inherit', cursor: 'none', transition: 'padding-left 0.4s',
             }}
             onMouseEnter={e => (e.currentTarget.style.paddingLeft = '12px')}
             onMouseLeave={e => (e.currentTarget.style.paddingLeft = '0px')}
