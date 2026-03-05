@@ -1,20 +1,24 @@
 'use client';
-import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import { useState, use } from 'react';
-import { products, getProduct } from '@/data/shop';
+import { useState, useEffect, use } from 'react';
+import { getProduct, getProducts } from '@/sanity/queries';
 
 export default function ProductPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = use(params);
-  const product = getProduct(slug);
-  if (!product) notFound();
-
-  const other = products.find(p => p.slug !== slug);
+  const [product, setProduct] = useState<any>(null);
+  const [other, setOther] = useState<any>(null);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [size, setSize] = useState('');
   const [message, setMessage] = useState('');
   const [submitted, setSubmitted] = useState(false);
+
+  useEffect(() => {
+    getProduct(slug).then(setProduct);
+    getProducts().then(all => setOther(all.find((p: any) => p.slug.current !== slug)));
+  }, [slug]);
+
+  if (!product) return <main className="page-body" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '100vh' }}><div style={{ color: 'var(--cream-faint)', fontSize: '11px', letterSpacing: '0.2em' }}>Loading...</div></main>;
 
   const handleSubmit = () => {
     if (!name || !email || !size) return alert('Please fill in name, email and size.');
@@ -28,12 +32,10 @@ export default function ProductPage({ params }: { params: Promise<{ slug: string
           <Link href="/shop" style={{ fontSize: '9px', letterSpacing: '0.25em', textTransform: 'uppercase', color: 'var(--cream-faint)', textDecoration: 'none', cursor: 'none' }}>← All Items</Link>
         </div>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', border: '1px solid var(--cream-faint)', minHeight: '600px' }}>
-          {/* Image */}
           <div style={{ position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRight: '1px solid var(--cream-faint)', overflow: 'hidden', minHeight: '560px', background: product.gradient }}>
             <span style={{ fontFamily: 'var(--font-sc)', fontSize: 'clamp(100px,18vw,220px)', color: 'rgba(237,232,224,0.04)', fontWeight: 300, userSelect: 'none' }}>{product.label}</span>
             <div style={{ position: 'absolute', top: '24px', left: '24px', fontSize: '9px', letterSpacing: '0.25em', textTransform: 'uppercase', color: 'var(--cream-faint)', border: '1px solid var(--cream-faint)', padding: '5px 12px' }}>{product.badge}</div>
           </div>
-          {/* Details */}
           <div style={{ padding: '56px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
             <div>
               <div style={{ fontSize: '9px', letterSpacing: '0.3em', textTransform: 'uppercase', color: 'var(--cream-faint)', marginBottom: '16px' }}>{product.category}</div>
@@ -41,15 +43,14 @@ export default function ProductPage({ params }: { params: Promise<{ slug: string
               <div style={{ fontFamily: 'var(--font-display)', fontSize: '36px', fontWeight: 300, color: 'var(--cream-dim)', marginBottom: '28px' }}>{product.price}</div>
               <p style={{ fontFamily: 'var(--font-display)', fontSize: '17px', fontWeight: 300, lineHeight: 1.8, color: 'var(--cream-dim)', marginBottom: '40px', borderBottom: '1px solid var(--cream-faint)', paddingBottom: '32px' }}>{product.description}</p>
               <div style={{ marginBottom: '40px' }}>
-                {product.specs.map(s => (
-                  <div key={s.label} style={{ display: 'flex', justifyContent: 'space-between', padding: '12px 0', borderBottom: '1px solid var(--cream-faint)', fontSize: '11px' }}>
+                {product.specs?.map((s: any) => (
+                  <div key={s._key} style={{ display: 'flex', justifyContent: 'space-between', padding: '12px 0', borderBottom: '1px solid var(--cream-faint)', fontSize: '11px' }}>
                     <span style={{ color: 'var(--cream-faint)', letterSpacing: '0.15em', textTransform: 'uppercase' }}>{s.label}</span>
                     <span style={{ color: 'var(--cream-dim)' }}>{s.value}</span>
                   </div>
                 ))}
               </div>
             </div>
-            {/* Form */}
             {!submitted ? (
               <div style={{ border: '1px solid var(--cream-faint)', padding: '40px' }}>
                 <h3 style={{ fontFamily: 'var(--font-sc)', fontSize: '16px', letterSpacing: '0.12em', color: 'var(--white)', marginBottom: '8px', fontWeight: 300 }}>Inquire to Buy</h3>
@@ -92,7 +93,7 @@ export default function ProductPage({ params }: { params: Promise<{ slug: string
       {other && (
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 56px 80px' }}>
           <div style={{ fontSize: '9px', letterSpacing: '0.3em', textTransform: 'uppercase', color: 'var(--cream-faint)', marginBottom: '24px' }}>You might also like</div>
-          <Link href={`/shop/${other.slug}`} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '28px', border: '1px solid var(--cream-faint)', textDecoration: 'none', color: 'inherit', cursor: 'none' }}>
+          <Link href={`/shop/${other.slug.current}`} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '28px', border: '1px solid var(--cream-faint)', textDecoration: 'none', color: 'inherit', cursor: 'none' }}>
             <div>
               <div style={{ fontFamily: 'var(--font-sc)', fontSize: '18px', color: 'var(--white)', fontWeight: 300, marginBottom: '4px' }}>{other.name}</div>
               <div style={{ fontSize: '10px', color: 'var(--cream-faint)', letterSpacing: '0.1em' }}>{other.category}</div>
