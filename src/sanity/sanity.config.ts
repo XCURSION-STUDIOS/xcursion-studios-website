@@ -7,6 +7,7 @@ export default defineConfig({
   projectId,
   dataset,
   title: 'Xcursion Studio',
+  basePath: '/studio',
   plugins: [structureTool()],
   schema: { types: schemas },
 });

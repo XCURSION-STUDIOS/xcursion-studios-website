@@ -1,13 +1,17 @@
 'use client';
 import { useEffect, useRef } from 'react';
+import { usePathname } from 'next/navigation';
 
 export default function Cursor() {
+  const pathname = usePathname();
   const cursorRef = useRef<HTMLDivElement>(null);
   const ringRef   = useRef<HTMLDivElement>(null);
   const mouse     = useRef({ x: 0, y: 0 });
   const ring      = useRef({ x: 0, y: 0 });
 
   useEffect(() => {
+    if (pathname.startsWith('/studio')) return;
+
     const onMove = (e: MouseEvent) => {
       mouse.current = { x: e.clientX, y: e.clientY };
       if (cursorRef.current) {
@@ -47,7 +51,9 @@ export default function Cursor() {
       document.removeEventListener('mouseover', onOver);
       cancelAnimationFrame(raf);
     };
-  }, []);
+  }, [pathname]);
+
+  if (pathname.startsWith('/studio')) return null;
 
   return (
     <>

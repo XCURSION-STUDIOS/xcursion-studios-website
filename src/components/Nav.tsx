@@ -3,15 +3,16 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 const links = [
-  { label: 'Home',     href: '/'           },
-  { label: 'Shop',     href: '/shop'       },
-  { label: 'Blog',     href: '/blog'       },
-  { label: 'Projects', href: '/projects'   },
-  { label: 'Contact',  href: '/#contact'   },
+  { label: 'Home',     href: '/'         },
+  { label: 'Shop',     href: '/shop'     },
+  { label: 'Blog',     href: '/blog'     },
+  { label: 'Projects', href: '/projects' },
+  { label: 'Contact',  href: '/#contact' },
 ];
 
 export default function Nav() {
   const pathname = usePathname();
+  if (pathname.startsWith('/studio')) return null;
 
   return (
     <nav className="site-nav">

@@ -220,7 +220,7 @@ export default function Home() {
             </div>
             {/* Featured project */}
             <Link href={`/projects/${projects[0].slug}`} style={{
-              display: 'block', textDecoration: 'none', color: 'inherit', cursor: 'none', marginBottom: '6px',
+              display: 'block', textDecoration: 'none', cursor: 'none', marginBottom: '6px',
             }}>
               <div style={{
                 position: 'relative', width: '100%', aspectRatio: '21/7',
@@ -247,7 +247,7 @@ export default function Home() {
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '6px', marginTop: '6px' }}>
               {projects.slice(1, 3).map(p => (
                 <Link key={p.slug} href={`/projects/${p.slug}`} style={{
-                  textDecoration: 'none', color: 'inherit', cursor: 'none',
+                  textDecoration: 'none', cursor: 'none',
                   border: '1px solid var(--cream-faint)', overflow: 'hidden',
                 }}>
                   <div style={{ aspectRatio: '16/7', background: p.gradient }} />
@@ -258,7 +258,7 @@ export default function Home() {
                 </Link>
               ))}
               <Link href="/projects" style={{
-                textDecoration: 'none', color: 'inherit', cursor: 'none',
+                textDecoration: 'none', cursor: 'none',
                 border: '1px solid var(--cream-faint)',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                 flexDirection: 'column', gap: '12px', padding: '32px',
