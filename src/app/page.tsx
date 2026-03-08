@@ -82,7 +82,7 @@ export default function Home() {
         <div
           ref={bgRef}
           className="hero-bg-img"
-          style={{ backgroundImage: "url('/bg.png')" }}
+          style={{ backgroundImage: "url('/bg.gif')" }}
         />
         <div className="hero-bg-overlay" />
         <div className="bg-grain" style={{ position: 'absolute', zIndex: 3 }} />
