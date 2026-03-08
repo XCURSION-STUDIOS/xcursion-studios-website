@@ -34,6 +34,13 @@ export default function Home() {
       if (!bgRef.current) return;
       const scrollY = window.scrollY;
       bgRef.current.style.transform = `translateY(${scrollY * 0.45}px)`;
+      document.querySelectorAll(".feature-bg").forEach((el, i) => {
+        const section = el.parentElement;
+        if (!section) return;
+        const rect = section.getBoundingClientRect();
+        const offset = (rect.top + rect.height / 2 - window.innerHeight / 2);
+        (el as HTMLElement).style.transform = `translateY(${offset * 0.25}px)`;
+      });
     };
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
@@ -101,28 +108,74 @@ export default function Home() {
           ))}
         </div>
       </div>
-
-      {/* ── SECTION 2: WHAT WE CREATE ── */}
-      <div className="section2">
+      {/* ── JOURNAL SECTION ── */}
+      <div className="feature-section">
+        <div className="feature-bg" style={{backgroundImage:"url('/bg.png')"}} />
+        <div className="feature-bg-overlay" />
         <div className="s2-gridlines" />
-        <div className="s2-glow" />
-        <div className="s2-inner">
-          <div className="s2-label reveal">What we create</div>
-          <div className="s2-grid">
-            {[
-              { num: '01', title: 'Journal', href: '/blog', desc: 'Slow essays, visual diaries and dispatches from places that shaped us.' },
-              { num: '02', title: 'Shop',    href: '/shop', desc: 'Garments and objects for people who move through the world with purpose.' },
-              { num: '03', title: 'Projects', href: '/projects', desc: 'Creative direction, collaborative work, and things we built from scratch.' },
-            ].map((c, i) => (
-              <Link href={c.href} key={c.num} className="s2-card reveal" style={{ transitionDelay: `${i * 0.12}s`, textDecoration: 'none' }}>
-                <div className="s2-bg-num">{c.num}</div>
-                <div className="s2-num">{c.num}</div>
-                <div className="s2-title">{c.title}</div>
-                <div className="s2-divider" />
-                <div className="s2-desc">{c.desc}</div>
-                <div className="s2-link">View all →</div>
-              </Link>
-            ))}
+        <div className="feature-inner reveal">
+          <div className="s2-label">01 — Journal</div>
+          <div className="s2-feature">
+            <div className="s2-feature-text">
+              <div className="s2-title">Journal</div>
+              <div className="s2-divider" />
+              <div className="s2-desc">Slow essays, visual diaries and dispatches from places that shaped us.</div>
+              <div className="s2-featured-item">
+                <div className="s2-featured-label">Featured Post</div>
+                <div className="s2-featured-title">The Art of Slow Travel</div>
+                <div className="s2-featured-meta">March 2024</div>
+              </div>
+              <Link href="/blog" className="s2-link" style={{opacity:1}}>Read the Journal →</Link>
+            </div>
+            <div className="s2-feature-img" style={{backgroundImage:"url('/bg.png')"}} />
+          </div>
+        </div>
+      </div>
+
+      {/* ── SHOP SECTION ── */}
+      <div className="feature-section">
+        <div className="feature-bg" style={{backgroundImage:"url('/bg.png')"}} />
+        <div className="feature-bg-overlay" />
+        <div className="s2-gridlines" />
+        <div className="feature-inner reveal">
+          <div className="s2-label">02 — Shop</div>
+          <div className="s2-feature">
+            <div className="s2-feature-text">
+              <div className="s2-title">Shop</div>
+              <div className="s2-divider" />
+              <div className="s2-desc">Garments and objects for people who move through the world with purpose.</div>
+              <div className="s2-featured-item">
+                <div className="s2-featured-label">Featured Product</div>
+                <div className="s2-featured-title">The Journey Jacket</div>
+                <div className="s2-featured-meta">New Arrival</div>
+              </div>
+              <Link href="/shop" className="s2-link" style={{opacity:1}}>Visit the Shop →</Link>
+            </div>
+            <div className="s2-feature-img" style={{backgroundImage:"url('/bg.png')"}} />
+          </div>
+        </div>
+      </div>
+
+      {/* ── PROJECTS SECTION ── */}
+      <div className="feature-section">
+        <div className="feature-bg" style={{backgroundImage:"url('/bg.png')"}} />
+        <div className="feature-bg-overlay" />
+        <div className="s2-gridlines" />
+        <div className="feature-inner reveal">
+          <div className="s2-label">03 — Projects</div>
+          <div className="s2-feature">
+            <div className="s2-feature-text">
+              <div className="s2-title">Projects</div>
+              <div className="s2-divider" />
+              <div className="s2-desc">Creative direction, collaborative work, and things we built from scratch.</div>
+              <div className="s2-featured-item">
+                <div className="s2-featured-label">Featured Project</div>
+                <div className="s2-featured-title">Visual Identity 001</div>
+                <div className="s2-featured-meta">2024</div>
+              </div>
+              <Link href="/projects" className="s2-link" style={{opacity:1}}>View Projects →</Link>
+            </div>
+            <div className="s2-feature-img" style={{backgroundImage:"url('/bg.png')"}} />
           </div>
         </div>
       </div>
