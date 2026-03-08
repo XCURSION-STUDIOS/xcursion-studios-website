@@ -20,30 +20,30 @@ const mockProjects = [
 
 export async function getPosts() {
   if (isDev) return mockPosts;
-  return client.fetch(`*[_type == post] | order(date desc) { title, slug, category, date, readTime, excerpt, heroGradient }`);
+  return client.fetch(`*[_type == "post"] | order(date desc) { title, slug, category, date, readTime, excerpt, heroGradient, "imageUrl": heroImage.asset->url }`);
 }
 
 export async function getPost(slug: string) {
   if (isDev) return mockPosts.find(p => p.slug.current === slug) || null;
-  return client.fetch(`*[_type == post && slug.current == $slug][0]`, { slug });
+  return client.fetch(`*[_type == "post" && slug.current == $slug][0]{ title, slug, category, date, readTime, excerpt, heroGradient, content, "imageUrl": heroImage.asset->url }`, { slug });
 }
 
 export async function getProjects() {
   if (isDev) return mockProjects;
-  return client.fetch(`*[_type == project] | order(year desc) { name, slug, category, year, tags, description, gradient, label }`);
+  return client.fetch(`*[_type == "project"] | order(year desc) { name, slug, category, year, tags, description, gradient, label, "imageUrl": image.asset->url }`);
 }
 
 export async function getProject(slug: string) {
   if (isDev) return mockProjects.find(p => p.slug.current === slug) || null;
-  return client.fetch(`*[_type == project && slug.current == $slug][0]`, { slug });
+  return client.fetch(`*[_type == "project" && slug.current == $slug][0]{ name, slug, category, year, tags, description, gradient, label, overview, tools, outcomes, "imageUrl": image.asset->url }`, { slug });
 }
 
 export async function getProducts() {
   if (isDev) return mockProducts;
-  return client.fetch(`*[_type == product] { name, slug, price, badge, category, description, gradient, label, specs }`);
+  return client.fetch(`*[_type == "product"] { name, slug, price, badge, category, description, gradient, label, specs, "imageUrl": image.asset->url }`);
 }
 
 export async function getProduct(slug: string) {
   if (isDev) return mockProducts.find(p => p.slug.current === slug) || null;
-  return client.fetch(`*[_type == product && slug.current == $slug][0]`, { slug });
+  return client.fetch(`*[_type == "product" && slug.current == $slug][0]{ name, slug, price, badge, category, description, gradient, label, specs, "imageUrl": image.asset->url }`, { slug });
 }
