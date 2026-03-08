@@ -2,6 +2,7 @@
 export const dynamic = 'force-dynamic';
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
+import { getPosts, getProducts, getProjects } from '@/sanity/queries';
 
 const MARQUEE_LABELS = [
   'Journal','Shop','Projects','Creative Studio','Est. 2024',
@@ -21,6 +22,9 @@ export default function Home() {
   const heroRef = useRef<HTMLDivElement>(null);
   const bgRef = useRef<HTMLDivElement>(null);
   const [loaded, setLoaded] = useState(false);
+  const [featuredPost, setFeaturedPost] = useState<any>(null);
+  const [featuredProduct, setFeaturedProduct] = useState<any>(null);
+  const [featuredProject, setFeaturedProject] = useState<any>(null);
 
   // Scroll to hash on load
   useEffect(() => {
@@ -28,6 +32,13 @@ export default function Home() {
       const el = document.getElementById('about');
       if (el) el.scrollIntoView({ behavior: 'smooth' });
     }
+  }, []);
+
+  // Fetch featured items
+  useEffect(() => {
+    getPosts().then(posts => { if (posts[0]) setFeaturedPost(posts[0]); });
+    getProducts().then(products => { if (products[0]) setFeaturedProduct(products[0]); });
+    getProjects().then(projects => { if (projects[0]) setFeaturedProject(projects[0]); });
   }, []);
 
   // Entrance animation
@@ -130,12 +141,12 @@ export default function Home() {
               <div className="s2-desc">Slow essays, visual diaries and dispatches from places that shaped us.</div>
               <div className="s2-featured-item">
                 <div className="s2-featured-label">Featured Post</div>
-                <div className="s2-featured-title">The Art of Slow Travel</div>
-                <div className="s2-featured-meta">March 2024</div>
+                <div className="s2-featured-title">{featuredPost?.title || 'Coming Soon'}</div>
+                <div className="s2-featured-meta">{featuredPost?.date || ''}</div>
               </div>
               <Link href="/blog" className="s2-link" style={{opacity:1}}>Read the Journal →</Link>
             </div>
-            <div className="s2-feature-img" style={{backgroundImage:"url('/bg.png')"}} />
+            <div className="s2-feature-img" style={{backgroundImage:featuredPost?.imageUrl ? `url(${featuredPost.imageUrl})` : "url('/bg.png')"}} />
           </div>
         </div>
       </div>
@@ -154,12 +165,12 @@ export default function Home() {
               <div className="s2-desc">Garments and objects for people who move through the world with purpose.</div>
               <div className="s2-featured-item">
                 <div className="s2-featured-label">Featured Product</div>
-                <div className="s2-featured-title">The Journey Jacket</div>
-                <div className="s2-featured-meta">New Arrival</div>
+                <div className="s2-featured-title">{featuredProduct?.name || 'Coming Soon'}</div>
+                <div className="s2-featured-meta">{featuredProduct?.price || ''}</div>
               </div>
               <Link href="/shop" className="s2-link" style={{opacity:1}}>Visit the Shop →</Link>
             </div>
-            <div className="s2-feature-img" style={{backgroundImage:"url('/bg.png')"}} />
+            <div className="s2-feature-img" style={{backgroundImage:featuredProduct?.imageUrl ? `url(${featuredProduct.imageUrl})` : "url('/bg.png')"}} />
           </div>
         </div>
       </div>
@@ -178,12 +189,12 @@ export default function Home() {
               <div className="s2-desc">Creative direction, collaborative work, and things we built from scratch.</div>
               <div className="s2-featured-item">
                 <div className="s2-featured-label">Featured Project</div>
-                <div className="s2-featured-title">Visual Identity 001</div>
-                <div className="s2-featured-meta">2024</div>
+                <div className="s2-featured-title">{featuredProject?.name || 'Coming Soon'}</div>
+                <div className="s2-featured-meta">{featuredProject?.year || ''}</div>
               </div>
               <Link href="/projects" className="s2-link" style={{opacity:1}}>View Projects →</Link>
             </div>
-            <div className="s2-feature-img" style={{backgroundImage:"url('/bg.png')"}} />
+            <div className="s2-feature-img" style={{backgroundImage:featuredProject?.imageUrl ? `url(${featuredProject.imageUrl})` : "url('/bg.png')"}} />
           </div>
         </div>
       </div>

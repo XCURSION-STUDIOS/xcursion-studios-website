@@ -9,6 +9,7 @@ export default {
     { name: 'year', title: 'Year', type: 'string' },
     { name: 'tags', title: 'Tags', type: 'array', of: [{ type: 'string' }] },
     { name: 'description', title: 'Description', type: 'text' },
+    { name: 'image', title: 'Image', type: 'image', options: { hotspot: true } },
     { name: 'gradient', title: 'Gradient (CSS)', type: 'string' },
     { name: 'label', title: 'Label', type: 'string' },
     { name: 'overview', title: 'Overview', type: 'text' },
