@@ -10,18 +10,13 @@ export default function ShopPage() {
 
   return (
     <main className="page-body">
-      <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '160px 56px 80px' }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '64px' }}>
-          <div>
-            <div className="section-label">Merch</div>
-            <h1 style={{ fontFamily: 'var(--font-display)', fontWeight: 300, fontSize: 'clamp(60px,8vw,112px)', lineHeight: 0.9, letterSpacing: '-0.02em', color: 'var(--white)' }}>
-              The<br /><em style={{ color: 'var(--cream-dim)' }}>Shop</em>
-            </h1>
-          </div>
-          <p style={{ fontFamily: 'var(--font-display)', fontStyle: 'italic', fontSize: '16px', color: 'var(--cream-faint)', lineHeight: 1.6, maxWidth: '300px', textAlign: 'right' }}>
-            No checkout yet — reach out and we&apos;ll sort you out personally.
-          </p>
-        </div>
+
+      <div style={{ position: 'relative', overflow: 'hidden' }}>
+        <div style={{ position: 'absolute', inset: 0, backgroundImage: "url('/bg.png')", backgroundSize: 'cover', backgroundPosition: 'center', opacity: 0.15, mixBlendMode: 'luminosity', filter: 'grayscale(100%) contrast(1.4)', pointerEvents: 'none' }} />
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '100px 56px 60px', position: 'relative', zIndex: 1 }}>
+        <div className="section-label">Merch</div>
+        <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(60px,8vw,112px)', lineHeight: 0.9, color: 'var(--cream)', marginBottom: '16px' }}>The<br /><em style={{ color: 'var(--cream-dim)' }}>Shop</em></h1>
+        <p style={{ fontFamily: 'var(--font-display)', fontStyle: 'italic', fontSize: '16px', color: 'var(--cream-faint)', lineHeight: 1.6, maxWidth: '300px', marginBottom: '24px' }}>No checkout yet — reach out and we&apos;ll sort you out personally.</p>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2px', background: 'var(--cream-faint)' }}>
           {products.map(p => (
             <Link key={p.slug.current} href={`/shop/${p.slug.current}`} style={{ background: 'var(--black)', textDecoration: 'none', color: 'inherit', cursor: 'none', display: 'grid', gridTemplateColumns: '1fr 1fr' }}>
@@ -42,6 +37,7 @@ export default function ShopPage() {
               </div>
             </Link>
           ))}
+        </div>
         </div>
       </div>
     </main>
