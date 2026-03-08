@@ -34,6 +34,7 @@ export default function PostPage({ params }: { params: Promise<{ slug: string }>
           </div>
         </div>
       </div>
+      {post.imageUrl && <div style={{ width: '100%', maxHeight: '560px', overflow: 'hidden', marginBottom: '0' }}><img src={post.imageUrl} alt={post.title} style={{ width: '100%', height: '560px', objectFit: 'cover', objectPosition: 'center', display: 'block', opacity: 0.9 }} /></div>}
       <div style={{ maxWidth: '700px', margin: '0 auto', padding: '80px 56px 120px', fontFamily: 'var(--font-display)', fontSize: '19px', fontWeight: 300, lineHeight: 1.9, color: 'var(--cream)' }}>
         {post.excerpt}
       </div>

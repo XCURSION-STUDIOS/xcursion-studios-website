@@ -30,7 +30,7 @@ export default function ProjectsPage() {
             onMouseEnter={e => (e.currentTarget.style.paddingLeft = '12px')}
             onMouseLeave={e => (e.currentTarget.style.paddingLeft = '0px')}
             >
-              <div style={{ width: '96px', height: '64px', background: p.gradient, border: '1px solid var(--cream-faint)', flexShrink: 0 }} />
+              <div style={{ width: '96px', height: '64px', backgroundImage: p.imageUrl ? `url(${p.imageUrl})` : undefined, background: p.imageUrl ? undefined : p.gradient, backgroundSize: 'cover', backgroundPosition: 'center', border: '1px solid var(--cream-faint)', flexShrink: 0 }} />
               <div>
                 <div style={{ display: 'flex', gap: '16px', marginBottom: '8px' }}>
                   <span style={{ fontSize: '9px', letterSpacing: '0.25em', textTransform: 'uppercase', color: 'rgba(240,230,208,0.7)' }}>{p.category}</span>
