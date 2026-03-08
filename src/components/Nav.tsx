@@ -26,9 +26,6 @@ export default function Nav() {
             </Link>
           </li>
         ))}
-        <li>
-          <Link href="/projects" className="nav-cta">Enter</Link>
-        </li>
       </ul>
     </nav>
   );
