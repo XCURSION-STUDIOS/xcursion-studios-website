@@ -1,5 +1,4 @@
 /* ─── FONTS ─── */
-@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Cormorant+Garamond:ital,wght@0,300;1,300&family=DM+Mono:wght@300&display=swap');
 
 @import "tailwindcss";
 
@@ -16,6 +15,7 @@
   --font-display: 'Instrument Serif', serif;
   --font-serif: 'Cormorant Garamond', serif;
   --font-mono: 'DM Mono', monospace;
+  --font-script: 'Great Vibes', cursive;
 }
 
 /* ─── BASE ─── */
@@ -576,3 +576,11 @@ body {
   .s2-grid { grid-template-columns: 1fr; }
   .site-footer { padding: 24px; flex-direction: column; gap: 16px; }
 }
+
+
+
+
+/* ─── HERO TITLE STACK ─── */
+.hero-title-stack { position: relative; display: flex; flex-direction: column; align-items: center; line-height: 1; }
+.hero-title-serif { font-family: "Bodoni Moda", serif; font-optical-sizing: auto; font-weight: 700; font-size: clamp(64px, 11vw, 148px); letter-spacing: 0.08em; color: var(--cream); line-height: 1; position: relative; z-index: 2; white-space: nowrap; }
+.hero-title-script { font-family: var(--font-script); font-size: clamp(52px, 8.5vw, 118px); color: var(--gold); line-height: 0.75; position: absolute; z-index: 3; white-space: nowrap; }
