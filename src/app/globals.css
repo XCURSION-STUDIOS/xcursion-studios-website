@@ -61,8 +61,10 @@ body {
   top: 0; left: 0; right: 0;
   z-index: 500;
   padding: 30px 56px;
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: 48px;
+  justify-content: center;
   align-items: center;
 }
 
@@ -82,6 +84,9 @@ body {
   gap: 40px;
   list-style: none;
   align-items: center;
+}
+.nav-links:last-of-type {
+  justify-content: flex-end;
 }
 
 .nav-links a {

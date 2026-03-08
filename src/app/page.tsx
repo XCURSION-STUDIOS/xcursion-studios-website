@@ -242,7 +242,7 @@ export default function Home() {
 
       {/* ── FOOTER ── */}
       <footer className="site-footer">
-        <Link href="/" className="footer-logo">Xcursion</Link>
+        <Link href="/" className="footer-logo"><img src="/logo.png" alt="Xcursion" style={{height:"28px",width:"auto"}} /></Link>
         <span className="footer-copy">© 2024 Xcursion Studios</span>
       </footer>
     </div>

@@ -2,9 +2,11 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-const links = [
-  { label: 'About',    href: '/#about'   },
-  { label: 'Journal',  href: '/blog'     },
+const linksLeft = [
+  { label: 'About',   href: '/#about' },
+  { label: 'Journal', href: '/blog'   },
+];
+const linksRight = [
   { label: 'Shop',     href: '/shop'     },
   { label: 'Projects', href: '/projects' },
 ];
@@ -15,17 +17,15 @@ export default function Nav() {
 
   return (
     <nav className="site-nav">
-      <Link href="/" onClick={() => window.scrollTo(0,0)} className="nav-logo">Xcursion</Link>
       <ul className="nav-links">
-        {links.map(({ label, href }) => (
-          <li key={href}>
-            <Link
-              href={href}
-              className={pathname.startsWith(href) ? 'active' : ''}
-            >
-              {label}
-            </Link>
-          </li>
+        {linksLeft.map(({ label, href }) => (
+          <li key={href}><Link href={href} className={pathname.startsWith(href) ? 'active' : ''}>{label}</Link></li>
+        ))}
+      </ul>
+      <Link href="/" onClick={() => window.scrollTo(0,0)} className="nav-logo"><img src="/logo.png" alt="Xcursion" style={{height:"32px",width:"auto"}} /></Link>
+      <ul className="nav-links">
+        {linksRight.map(({ label, href }) => (
+          <li key={href}><Link href={href} className={pathname.startsWith(href) ? 'active' : ''}>{label}</Link></li>
         ))}
       </ul>
     </nav>
