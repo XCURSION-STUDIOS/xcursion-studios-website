@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 const links = [
+  { label: 'About',    href: '/#about'   },
   { label: 'Journal',  href: '/blog'     },
   { label: 'Shop',     href: '/shop'     },
   { label: 'Projects', href: '/projects' },
@@ -14,7 +15,7 @@ export default function Nav() {
 
   return (
     <nav className="site-nav">
-      <Link href="/" className="nav-logo">Xcursion</Link>
+      <Link href="/" onClick={() => window.scrollTo(0,0)} className="nav-logo">Xcursion</Link>
       <ul className="nav-links">
         {links.map(({ label, href }) => (
           <li key={href}>

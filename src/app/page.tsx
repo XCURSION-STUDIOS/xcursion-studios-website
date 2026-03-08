@@ -22,6 +22,14 @@ export default function Home() {
   const bgRef = useRef<HTMLDivElement>(null);
   const [loaded, setLoaded] = useState(false);
 
+  // Scroll to hash on load
+  useEffect(() => {
+    if (window.location.hash === '#about') {
+      const el = document.getElementById('about');
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, []);
+
   // Entrance animation
   useEffect(() => {
     const t = setTimeout(() => setLoaded(true), 100);
@@ -182,7 +190,7 @@ export default function Home() {
 
       
       {/* ── ABOUT SECTION ── */}
-      <div className="feature-section feature-section--bordered">
+      <div id="about" className="feature-section feature-section--bordered">
         <div className="feature-bg" style={{backgroundImage:"url('/bg.png')"}} />
         <div className="feature-bg-overlay" />
         <div className="s2-gridlines" />
