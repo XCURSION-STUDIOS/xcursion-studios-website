@@ -41,10 +41,10 @@ export default function ProductPage({ params }: { params: Promise<{ slug: string
               <div style={{ fontSize: '9px', letterSpacing: '0.3em', textTransform: 'uppercase', color: 'rgba(240,230,208,0.7)', marginBottom: '16px' }}>{product.category}</div>
               <h1 style={{ fontFamily: 'var(--font-display)', fontWeight: 300, fontSize: 'clamp(40px,5vw,72px)', lineHeight: 0.95, color: 'var(--cream)', marginBottom: '24px' }}>{product.name}</h1>
               <div style={{ fontFamily: 'var(--font-display)', fontSize: '36px', fontWeight: 300, color: 'var(--cream)', marginBottom: '28px' }}>{product.price}</div>
-              <p style={{ fontFamily: 'var(--font-display)', fontSize: '17px', fontWeight: 300, lineHeight: 1.8, color: 'var(--cream)', marginBottom: '40px', borderBottom: '1px solid rgba(240,230,208,0.15)', paddingBottom: '32px' }}>{product.description}</p>
+              <p style={{ fontFamily: 'var(--font-display)', fontSize: '17px', fontWeight: 300, lineHeight: 1.8, color: 'var(--cream)', marginBottom: '40px', borderBottom: '1px solid rgba(201,168,76,0.2)', paddingBottom: '32px' }}>{product.description}</p>
               <div style={{ marginBottom: '40px' }}>
                 {product.specs?.map((s: any) => (
-                  <div key={s._key} style={{ display: 'flex', justifyContent: 'space-between', padding: '12px 0', borderBottom: '1px solid rgba(240,230,208,0.15)', fontSize: '11px' }}>
+                  <div key={s._key} style={{ display: 'flex', justifyContent: 'space-between', padding: '12px 0', borderBottom: '1px solid rgba(201,168,76,0.2)', fontSize: '11px' }}>
                     <span style={{ color: 'rgba(240,230,208,0.7)', letterSpacing: '0.15em', textTransform: 'uppercase' }}>{s.label}</span>
                     <span style={{ color: 'var(--cream)' }}>{s.value}</span>
                   </div>

@@ -25,7 +25,7 @@ export default function PostPage({ params }: { params: Promise<{ slug: string }>
         <div style={{ position: 'absolute', inset: 0, background: post.heroGradient }} />
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(7,6,13,1) 0%, rgba(7,6,13,0.55) 50%, rgba(7,6,13,0.1) 100%)' }} />
         <div style={{ position: 'relative', zIndex: 2, padding: '0 56px 64px', maxWidth: '900px' }}>
-          <div style={{ fontSize: '9px', letterSpacing: '0.35em', textTransform: 'uppercase', color: 'rgba(240,230,208,0.7)', marginBottom: '20px', display: 'flex', alignItems: 'center', gap: '12px' }}>
+          <div style={{ fontSize: '9px', letterSpacing: '0.35em', textTransform: 'uppercase', color: 'var(--gold)', marginBottom: '20px', display: 'flex', alignItems: 'center', gap: '12px' }}>
             <span style={{ display: 'inline-block', width: '32px', height: '1px', background: 'var(--cream-faint)' }} />{post.category}
           </div>
           <h1 style={{ fontFamily: 'var(--font-display)', fontWeight: 300, fontSize: 'clamp(36px,5.5vw,80px)', lineHeight: 1.0, letterSpacing: '-0.02em', color: 'var(--cream)', marginBottom: '24px' }}>{post.title}</h1>
@@ -37,7 +37,7 @@ export default function PostPage({ params }: { params: Promise<{ slug: string }>
       <div style={{ maxWidth: '700px', margin: '0 auto', padding: '80px 56px 120px', fontFamily: 'var(--font-display)', fontSize: '19px', fontWeight: 300, lineHeight: 1.9, color: 'var(--cream)' }}>
         {post.excerpt}
       </div>
-      <nav style={{ borderTop: '1px solid rgba(240,230,208,0.15)', padding: '48px 56px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+      <nav style={{ borderTop: '1px solid rgba(201,168,76,0.2)', padding: '48px 56px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         {prev ? <Link href={`/blog/${prev.slug.current}`} style={{ textDecoration: 'none', color: 'var(--cream)', cursor: 'none' }}>
           <div style={{ fontSize: '9px', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(240,230,208,0.7)', marginBottom: '6px' }}>← Previous</div>
           <div style={{ fontFamily: 'var(--font-display)', fontSize: '16px', fontWeight: 300 }}>{prev.title}</div>

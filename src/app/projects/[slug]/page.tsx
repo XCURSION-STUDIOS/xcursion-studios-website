@@ -25,7 +25,7 @@ export default function ProjectPage({ params }: { params: Promise<{ slug: string
         <div style={{ position: 'absolute', inset: 0, background: project.gradient }} />
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(7,6,13,1) 0%, rgba(7,6,13,0.4) 55%, rgba(7,6,13,0.05) 100%)' }} />
         <div style={{ position: 'relative', zIndex: 2, padding: '0 56px 56px', width: '100%' }}>
-          <div style={{ fontSize: '9px', letterSpacing: '0.35em', textTransform: 'uppercase', color: 'rgba(240,230,208,0.7)', marginBottom: '20px', display: 'flex', alignItems: 'center', gap: '12px' }}>
+          <div style={{ fontSize: '9px', letterSpacing: '0.35em', textTransform: 'uppercase', color: 'var(--gold)', marginBottom: '20px', display: 'flex', alignItems: 'center', gap: '12px' }}>
             <span style={{ display: 'inline-block', width: '32px', height: '1px', background: 'var(--cream-faint)' }} />{project.category}
           </div>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }}>
@@ -51,19 +51,19 @@ export default function ProjectPage({ params }: { params: Promise<{ slug: string
           { label: 'Overview', content: <p style={{ fontFamily: 'var(--font-display)', fontSize: '18px', fontWeight: 300, lineHeight: 1.85, color: 'var(--cream)' }}>{project.overview}</p> },
           { label: 'Tools & Stack', content: <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>{project.tools?.map((t: string) => <span key={t} style={{ fontSize: '9px', letterSpacing: '0.18em', textTransform: 'uppercase', padding: '6px 14px', border: '1px solid rgba(240,230,208,0.25)', color: 'rgba(240,230,208,0.7)' }}>{t}</span>)}</div> },
           { label: 'Outcomes', content: <div>{project.outcomes?.map((o: string, i: number) => (
-            <div key={i} style={{ display: 'flex', gap: '20px', padding: '16px 0', borderBottom: '1px solid rgba(240,230,208,0.15)' }}>
+            <div key={i} style={{ display: 'flex', gap: '20px', padding: '16px 0', borderBottom: '1px solid rgba(201,168,76,0.2)' }}>
               <span style={{ fontSize: '9px', color: 'rgba(240,230,208,0.7)', paddingTop: '3px', minWidth: '24px' }}>0{i+1}</span>
               <span style={{ fontFamily: 'var(--font-display)', fontSize: '17px', fontWeight: 300, color: 'var(--cream)', lineHeight: 1.6 }}>{o}</span>
             </div>
           ))}</div> },
         ].map(({ label, content }) => (
-          <div key={label} style={{ display: 'grid', gridTemplateColumns: '200px 1fr', gap: '64px', padding: '48px 0', borderBottom: '1px solid rgba(240,230,208,0.15)', borderTop: label === 'Overview' ? '1px solid var(--cream-faint)' : 'none' }}>
+          <div key={label} style={{ display: 'grid', gridTemplateColumns: '200px 1fr', gap: '64px', padding: '48px 0', borderBottom: '1px solid rgba(201,168,76,0.2)', borderTop: label === 'Overview' ? '1px solid var(--cream-faint)' : 'none' }}>
             <div style={{ fontSize: '9px', letterSpacing: '0.3em', textTransform: 'uppercase', color: 'rgba(240,230,208,0.7)', paddingTop: '4px' }}>{label}</div>
             <div>{content}</div>
           </div>
         ))}
       </div>
-      <nav style={{ borderTop: '1px solid rgba(240,230,208,0.15)', padding: '48px 56px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+      <nav style={{ borderTop: '1px solid rgba(201,168,76,0.2)', padding: '48px 56px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         {prev ? <Link href={`/projects/${prev.slug.current}`} style={{ textDecoration: 'none', color: 'var(--cream)', cursor: 'none' }}>
           <div style={{ fontSize: '9px', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(240,230,208,0.7)', marginBottom: '6px' }}>← Previous</div>
           <div style={{ fontFamily: 'var(--font-display)', fontSize: '16px', fontWeight: 300 }}>{prev.name}</div>

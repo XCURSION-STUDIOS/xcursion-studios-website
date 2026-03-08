@@ -15,10 +15,10 @@ export default function ShopPage() {
         <div className="s2-gridlines" style={{ position: 'fixed', zIndex: 0, pointerEvents: 'none' }} />
         <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '400px', zIndex: 0, backgroundImage: "url('/bg.png')", backgroundSize: 'cover', backgroundPosition: 'center', opacity: 0.15, mixBlendMode: 'luminosity', filter: 'grayscale(100%) contrast(1.4)', pointerEvents: 'none' }} />
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '140px 56px 60px', position: 'relative', zIndex: 1 }}>
-        <div className="section-label">Merch</div>
+        <div className="section-label" style={{color:"var(--gold)",letterSpacing:"0.35em"}}>Merch</div>
         <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(60px,8vw,112px)', lineHeight: 0.9, color: 'var(--cream)', marginBottom: '16px' }}>The<br /><em style={{ color: 'rgba(240,230,208,0.85)' }}>Shop</em></h1>
         <p style={{ fontFamily: 'var(--font-serif)', fontStyle: 'italic', fontSize: '16px', color: 'rgba(240,230,208,0.7)', lineHeight: 1.6, maxWidth: '400px', marginBottom: '64px' }}>No checkout yet — reach out and we&apos;ll sort you out personally.</p>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2px', background: 'var(--cream-faint)' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2px', background: 'rgba(240,230,208,0.06)' }}>
           {products.map(p => (
             <Link key={p.slug.current} href={`/shop/${p.slug.current}`} style={{ background: 'var(--black)', textDecoration: 'none', color: 'inherit', cursor: 'none', display: 'grid', gridTemplateColumns: '1fr 1fr' }}>
               <div style={{ aspectRatio: '3/4', display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative', overflow: 'hidden', background: p.gradient, borderRight: '1px solid var(--cream-faint)' }}>
