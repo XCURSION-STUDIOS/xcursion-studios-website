@@ -11,9 +11,9 @@ export default function BlogPage() {
   return (
     <main className="page-body">
 
-      <div style={{ position: 'relative', overflow: 'hidden' }}>
-        <div style={{ position: 'absolute', inset: 0, backgroundImage: "url('/bg.png')", backgroundSize: 'cover', backgroundPosition: 'center', opacity: 0.15, mixBlendMode: 'luminosity', filter: 'grayscale(100%) contrast(1.4)', pointerEvents: 'none' }} />
-        <div style={{ maxWidth: '1100px', margin: '0 auto', padding: '100px 56px 60px', position: 'relative', zIndex: 1 }}>
+      <div style={{ position: 'relative' }}>
+        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '400px', zIndex: 0, backgroundImage: "url('/bg.png')", backgroundSize: 'cover', backgroundPosition: 'center', opacity: 0.15, mixBlendMode: 'luminosity', filter: 'grayscale(100%) contrast(1.4)', pointerEvents: 'none' }} />
+        <div style={{ maxWidth: '1100px', margin: '0 auto', padding: '140px 56px 60px', position: 'relative', zIndex: 1 }}>
         <div className="section-label">Writing</div>
         <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(60px,8vw,112px)', lineHeight: 0.9, color: 'var(--cream)', marginBottom: '16px' }}>The<br /><em style={{ color: 'var(--cream-dim)' }}>Journal</em></h1>
         <p style={{ fontFamily: 'var(--font-serif)', fontStyle: 'italic', fontSize: '16px', color: 'var(--cream-faint)', lineHeight: 1.6, maxWidth: '400px', marginBottom: '64px' }}>Slow essays, visual diaries and dispatches from places that shaped us.</p>

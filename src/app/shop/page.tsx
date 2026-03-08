@@ -11,12 +11,12 @@ export default function ShopPage() {
   return (
     <main className="page-body">
 
-      <div style={{ position: 'relative', overflow: 'hidden' }}>
-        <div style={{ position: 'absolute', inset: 0, backgroundImage: "url('/bg.png')", backgroundSize: 'cover', backgroundPosition: 'center', opacity: 0.15, mixBlendMode: 'luminosity', filter: 'grayscale(100%) contrast(1.4)', pointerEvents: 'none' }} />
-        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '100px 56px 60px', position: 'relative', zIndex: 1 }}>
+      <div style={{ position: 'relative' }}>
+        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '400px', zIndex: 0, backgroundImage: "url('/bg.png')", backgroundSize: 'cover', backgroundPosition: 'center', opacity: 0.15, mixBlendMode: 'luminosity', filter: 'grayscale(100%) contrast(1.4)', pointerEvents: 'none' }} />
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '140px 56px 60px', position: 'relative', zIndex: 1 }}>
         <div className="section-label">Merch</div>
         <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(60px,8vw,112px)', lineHeight: 0.9, color: 'var(--cream)', marginBottom: '16px' }}>The<br /><em style={{ color: 'var(--cream-dim)' }}>Shop</em></h1>
-        <p style={{ fontFamily: 'var(--font-display)', fontStyle: 'italic', fontSize: '16px', color: 'var(--cream-faint)', lineHeight: 1.6, maxWidth: '300px', marginBottom: '24px' }}>No checkout yet — reach out and we&apos;ll sort you out personally.</p>
+        <p style={{ fontFamily: 'var(--font-serif)', fontStyle: 'italic', fontSize: '16px', color: 'var(--cream-faint)', lineHeight: 1.6, maxWidth: '400px', marginBottom: '64px' }}>No checkout yet — reach out and we&apos;ll sort you out personally.</p>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2px', background: 'var(--cream-faint)' }}>
           {products.map(p => (
             <Link key={p.slug.current} href={`/shop/${p.slug.current}`} style={{ background: 'var(--black)', textDecoration: 'none', color: 'inherit', cursor: 'none', display: 'grid', gridTemplateColumns: '1fr 1fr' }}>
