@@ -3,11 +3,9 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 const links = [
-  { label: 'Home',     href: '/'         },
+  { label: 'Journal',  href: '/blog'     },
   { label: 'Shop',     href: '/shop'     },
-  { label: 'Blog',     href: '/blog'     },
   { label: 'Projects', href: '/projects' },
-  { label: 'Contact',  href: '/#contact' },
 ];
 
 export default function Nav() {
@@ -22,12 +20,15 @@ export default function Nav() {
           <li key={href}>
             <Link
               href={href}
-              className={pathname === href || (href !== '/' && pathname.startsWith(href)) ? 'active' : ''}
+              className={pathname.startsWith(href) ? 'active' : ''}
             >
               {label}
             </Link>
           </li>
         ))}
+        <li>
+          <Link href="/projects" className="nav-cta">Enter</Link>
+        </li>
       </ul>
     </nav>
   );
