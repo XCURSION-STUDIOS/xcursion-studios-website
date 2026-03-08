@@ -180,6 +180,47 @@ export default function Home() {
         </div>
       </div>
 
+      
+      {/* ── ABOUT SECTION ── */}
+      <div className="feature-section feature-section--bordered">
+        <div className="feature-bg" style={{backgroundImage:"url('/bg.png')"}} />
+        <div className="feature-bg-overlay" />
+        <div className="s2-gridlines" />
+        <div className="feature-inner reveal">
+          <div className="s2-label">About</div>
+          <div className="about-grid">
+            <div className="about-text">
+              <div className="s2-title">We Are<br />Xcursion</div>
+              <div className="s2-divider" />
+              <p className="s2-desc">Xcursion Studios is a lifestyle and creative brand built for those who move through the world with purpose. We sit at the intersection of movement, ambiance, and intentional living — creating objects, stories, and experiences that reflect a life well-curated.</p>
+              <p className="s2-desc" style={{marginTop:'16px'}}>We don't follow trends. We document a way of living.</p>
+            </div>
+            <div className="about-details">
+              <div className="about-detail-group">
+                <div className="s2-num">Est.</div>
+                <div className="about-detail-value">2024</div>
+              </div>
+              <div className="about-detail-group">
+                <div className="s2-num">Location</div>
+                <div className="about-detail-value">Your City, Country</div>
+              </div>
+              <div className="about-detail-group">
+                <div className="s2-num">Instagram</div>
+                <div className="about-detail-value">@xcursionstudios</div>
+              </div>
+              <div className="about-detail-group">
+                <div className="s2-num">TikTok</div>
+                <div className="about-detail-value">@xcursionstudios</div>
+              </div>
+              <div className="about-detail-group">
+                <div className="s2-num">Contact</div>
+                <div className="about-detail-value">hello@xcursionstudios.com</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* ── FOOTER ── */}
       <footer className="site-footer">
         <Link href="/" className="footer-logo">Xcursion</Link>
