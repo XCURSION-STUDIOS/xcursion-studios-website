@@ -139,7 +139,7 @@ export default function Home() {
         <div className="s2-gridlines" />
         <div className="feature-inner reveal">
           <div className="s2-label">02 — Shop</div>
-          <div className="s2-feature">
+          <div className="s2-feature s2-feature--reverse">
             <div className="s2-feature-text">
               <div className="s2-title">Shop</div>
               <div className="s2-divider" />

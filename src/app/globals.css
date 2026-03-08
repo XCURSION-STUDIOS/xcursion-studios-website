@@ -676,9 +676,4 @@ body {
 .feature-section--bordered {
   border-top: 1px solid rgba(201,168,76,0.15);
 }
-.s2-feature--reverse {
-  direction: rtl;
-}
-.s2-feature--reverse > * {
-  direction: ltr;
-}
+.s2-feature--reverse { grid-column: 1 / -1; grid-template-columns: 1fr 1fr; } .s2-feature--reverse .s2-feature-img { order: -1; } 
