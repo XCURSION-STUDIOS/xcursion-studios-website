@@ -10,7 +10,6 @@ export default {
     { name: 'category', title: 'Category', type: 'string' },
     { name: 'description', title: 'Description', type: 'text' },
     { name: 'image', title: 'Image', type: 'image', options: { hotspot: true } },
-    { name: 'gradient', title: 'Gradient (CSS)', type: 'string' },
     { name: 'label', title: 'Label', type: 'string' },
     {
       name: 'specs', title: 'Specs', type: 'array', of: [{
