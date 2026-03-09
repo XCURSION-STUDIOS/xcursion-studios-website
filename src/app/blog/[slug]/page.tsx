@@ -21,7 +21,7 @@ export default function PostPage({ params }: { params: Promise<{ slug: string }>
 
   return (
     <main className="page-body">
-      <div style={{ position: 'relative', width: '100%', height: '70vh', minHeight: '480px', display: 'flex', alignItems: 'flex-end', overflow: 'hidden' }}>
+      <div style={{ position: 'relative', width: '100%', display: 'flex', alignItems: 'flex-end', overflow: 'hidden' }}>
         <div style={{ position: 'absolute', inset: 0, background: 'var(--bg)' }} />
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(7,6,13,1) 0%, rgba(7,6,13,0.55) 50%, rgba(7,6,13,0.1) 100%)' }} />
         <div style={{ position: 'relative', zIndex: 2, padding: '0 56px 64px', maxWidth: '900px' }}>
