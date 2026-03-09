@@ -21,7 +21,7 @@ export default function ShopPage() {
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2px', background: 'rgba(240,230,208,0.06)' }}>
           {products.map(p => (
             <Link key={p.slug.current} href={`/shop/${p.slug.current}`} style={{ background: 'var(--black)', textDecoration: 'none', color: 'inherit', cursor: 'none', display: 'grid', gridTemplateColumns: '1fr 1fr' }}>
-              <div style={{ aspectRatio: '3/4', display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative', overflow: 'hidden', backgroundImage: p.imageUrl ? `url(${p.imageUrl})` : undefined, background: p.imageUrl ? undefined : p.gradient, backgroundSize: 'cover', backgroundPosition: 'center', borderRight: '1px solid var(--cream-faint)' }}>
+              <div style={{ aspectRatio: '3/4', display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative', overflow: 'hidden', backgroundImage: p.imageUrl ? `url(${p.imageUrl})` : undefined, background: p.imageUrl ? undefined : 'var(--bg)', backgroundSize: 'cover', backgroundPosition: 'center', borderRight: '1px solid var(--cream-faint)' }}>
                 <span style={{ fontFamily: 'var(--font-sc)', fontSize: 'clamp(60px,10vw,130px)', color: 'rgba(237,232,224,0.04)', fontWeight: 300 }}>{p.label}</span>
                 <div style={{ position: 'absolute', bottom: '20px', left: '20px', fontSize: '9px', letterSpacing: '0.22em', textTransform: 'uppercase', color: 'rgba(240,230,208,0.7)', border: '1px solid var(--cream-faint)', padding: '4px 10px' }}>{p.badge}</div>
               </div>
