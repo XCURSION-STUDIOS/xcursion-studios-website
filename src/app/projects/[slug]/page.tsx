@@ -22,7 +22,7 @@ export default function ProjectPage({ params }: { params: Promise<{ slug: string
   return (
     <main className="page-body">
       <div style={{ position: 'relative', width: '100%', height: '75vh', minHeight: '500px', display: 'flex', alignItems: 'flex-end', overflow: 'hidden' }}>
-        <div style={{ position: 'absolute', inset: 0, backgroundImage: project.imageUrl ? `url(${project.imageUrl})` : undefined, background: project.imageUrl ? undefined : 'var(--bg)' }} />
+        <div style={{ position: 'absolute', inset: 0, background: project.imageUrl ? `url(${project.imageUrl}) center/cover no-repeat` : 'var(--bg)' }} />
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(7,6,13,1) 0%, rgba(7,6,13,0.4) 55%, rgba(7,6,13,0.05) 100%)' }} />
         <div style={{ position: 'relative', zIndex: 2, padding: '0 56px 56px', width: '100%' }}>
           <div style={{ fontSize: '9px', letterSpacing: '0.35em', textTransform: 'uppercase', color: 'var(--gold)', marginBottom: '20px', display: 'flex', alignItems: 'center', gap: '12px' }}>

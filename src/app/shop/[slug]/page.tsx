@@ -32,7 +32,7 @@ export default function ProductPage({ params }: { params: Promise<{ slug: string
           <Link href="/shop" style={{ fontSize: '9px', letterSpacing: '0.25em', textTransform: 'uppercase', color: 'rgba(240,230,208,0.7)', textDecoration: 'none', cursor: 'none' }}>← All Items</Link>
         </div>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', border: '1px solid rgba(240,230,208,0.25)', minHeight: '600px' }}>
-          <div style={{ position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRight: '1px solid rgba(240,230,208,0.15)', overflow: 'hidden', minHeight: '560px', backgroundImage: product.imageUrl ? `url(${product.imageUrl})` : undefined, background: product.imageUrl ? undefined : 'var(--bg)', backgroundSize: 'cover', backgroundPosition: 'center' }}>
+          <div style={{ position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRight: '1px solid rgba(240,230,208,0.15)', overflow: 'hidden', minHeight: '560px', background: product.imageUrl ? `url(${product.imageUrl}) center/cover no-repeat` : 'var(--bg)' }}>
             <span style={{ fontFamily: 'var(--font-sc)', fontSize: 'clamp(100px,18vw,220px)', color: 'rgba(237,232,224,0.04)', fontWeight: 300, userSelect: 'none' }}>{product.label}</span>
             <div style={{ position: 'absolute', top: '24px', left: '24px', fontSize: '9px', letterSpacing: '0.25em', textTransform: 'uppercase', color: 'rgba(240,230,208,0.7)', border: '1px solid rgba(240,230,208,0.25)', padding: '5px 12px' }}>{product.badge}</div>
           </div>
