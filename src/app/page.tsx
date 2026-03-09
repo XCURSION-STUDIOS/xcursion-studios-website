@@ -26,12 +26,17 @@ export default function Home() {
   const [featuredProduct, setFeaturedProduct] = useState<any>(null);
   const [featuredProject, setFeaturedProject] = useState<any>(null);
 
-  // Scroll to hash on load
+  // Scroll to hash on load and hash change
   useEffect(() => {
-    if (window.location.hash === '#about') {
-      const el = document.getElementById('about');
-      if (el) el.scrollIntoView({ behavior: 'smooth' });
-    }
+    const scrollToHash = () => {
+      if (window.location.hash === '#about') {
+        const el = document.getElementById('about');
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      }
+    };
+    scrollToHash();
+    window.addEventListener('hashchange', scrollToHash);
+    return () => window.removeEventListener('hashchange', scrollToHash);
   }, []);
 
   // Fetch featured items
