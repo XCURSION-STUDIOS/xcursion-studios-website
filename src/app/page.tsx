@@ -36,9 +36,9 @@ export default function Home() {
 
   // Fetch featured items
   useEffect(() => {
-    getPosts().then(posts => { if (posts[0]) setFeaturedPost(posts[0]); });
-    getProducts().then(products => { if (products[0]) setFeaturedProduct(products[0]); });
-    getProjects().then(projects => { if (projects[0]) setFeaturedProject(projects[0]); });
+    getPosts().then(posts => { if (posts.length) setFeaturedPost(posts[Math.floor(Math.random() * posts.length)]); });
+    getProducts().then(products => { if (products.length) setFeaturedProduct(products[Math.floor(Math.random() * products.length)]); });
+    getProjects().then(projects => { if (projects.length) setFeaturedProject(projects[Math.floor(Math.random() * projects.length)]); });
   }, []);
 
   // Entrance animation
@@ -144,7 +144,7 @@ export default function Home() {
                 <div className="s2-featured-title">{featuredPost?.title || 'Coming Soon'}</div>
                 <div className="s2-featured-meta">{featuredPost?.date || ''}</div>
               </div>
-              <Link href="/blog" className="s2-link" style={{opacity:1}}>Read the Journal →</Link>
+              <Link href={featuredPost ? `/blog/${featuredPost.slug.current}` : "/blog"} className="s2-link" style={{opacity:1}}>Read the Journal →</Link>
             </div>
             <div className="s2-feature-img" style={{backgroundImage:featuredPost?.imageUrl ? `url(${featuredPost.imageUrl})` : "url('/bg.png')"}} />
           </div>
@@ -168,7 +168,7 @@ export default function Home() {
                 <div className="s2-featured-title">{featuredProduct?.name || 'Coming Soon'}</div>
                 <div className="s2-featured-meta">{featuredProduct?.price || ''}</div>
               </div>
-              <Link href="/shop" className="s2-link" style={{opacity:1}}>Visit the Shop →</Link>
+              <Link href={featuredProduct ? `/shop/${featuredProduct.slug.current}` : "/shop"} className="s2-link" style={{opacity:1}}>Visit the Shop →</Link>
             </div>
             <div className="s2-feature-img" style={{backgroundImage:featuredProduct?.imageUrl ? `url(${featuredProduct.imageUrl})` : "url('/bg.png')"}} />
           </div>
@@ -192,7 +192,7 @@ export default function Home() {
                 <div className="s2-featured-title">{featuredProject?.name || 'Coming Soon'}</div>
                 <div className="s2-featured-meta">{featuredProject?.year || ''}</div>
               </div>
-              <Link href="/projects" className="s2-link" style={{opacity:1}}>View Projects →</Link>
+              <Link href={featuredProject ? `/projects/${featuredProject.slug.current}` : "/projects"} className="s2-link" style={{opacity:1}}>View Projects →</Link>
             </div>
             <div className="s2-feature-img" style={{backgroundImage:featuredProject?.imageUrl ? `url(${featuredProject.imageUrl})` : "url('/bg.png')"}} />
           </div>
