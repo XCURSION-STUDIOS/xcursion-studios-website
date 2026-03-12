@@ -9,7 +9,11 @@ export default {
     { name: 'badge', title: 'Badge', type: 'string' },
     { name: 'category', title: 'Category', type: 'string' },
     { name: 'description', title: 'Description', type: 'text' },
-    { name: 'image', title: 'Image', type: 'image', options: { hotspot: true } },
+    { name: 'image', title: 'Main Image', type: 'image', options: { hotspot: true } },
+    { name: 'image2', title: 'Image 2', type: 'image', options: { hotspot: true } },
+    { name: 'image2caption', title: 'Image 2 Caption', type: 'text' },
+    { name: 'image3', title: 'Image 3', type: 'image', options: { hotspot: true } },
+    { name: 'image3caption', title: 'Image 3 Caption', type: 'text' },
     { name: 'label', title: 'Label', type: 'string' },
     {
       name: 'specs', title: 'Specs', type: 'array', of: [{

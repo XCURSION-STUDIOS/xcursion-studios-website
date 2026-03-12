@@ -9,8 +9,8 @@ const mockPosts = [
 ];
 
 const mockProducts = [
-  { name: 'The Journey Jacket', slug: { current: 'journey-jacket' }, price: '$220', badge: 'New', category: 'Outerwear', description: 'Built for movement. Designed to last.', gradient: 'linear-gradient(135deg, #1a1a1a, #2d2d2d)', label: 'JJ' },
-  { name: 'Studio Tote', slug: { current: 'studio-tote' }, price: '$85', badge: 'Available', category: 'Accessories', description: 'Carry everything. Compromise nothing.', gradient: 'linear-gradient(135deg, #0d0d0d, #1a1a1a)', label: 'ST' },
+  { name: 'The Journey Jacket', slug: { current: 'journey-jacket' }, price: '$220', badge: 'New', category: 'Outerwear', description: 'Built for movement. Designed to last.', label: 'JJ', image2caption: 'Crafted from premium technical fabric that moves with you.', image3caption: 'Every detail considered. Every seam intentional.', specs: [{ _key: '1', label: 'Material', value: '100% Recycled Nylon' }, { _key: '2', label: 'Fit', value: 'Relaxed' }, { _key: '3', label: 'Origin', value: 'Made in Portugal' }] },
+  { name: 'Studio Tote', slug: { current: 'studio-tote' }, price: '$85', badge: 'Available', category: 'Accessories', description: 'Carry everything. Compromise nothing.', label: 'ST', image2caption: 'Wide enough for a 16" laptop, a change of clothes, and everything in between.', image3caption: 'The tote that goes from studio to street without missing a beat.', specs: [{ _key: '1', label: 'Material', value: 'Waxed Canvas' }, { _key: '2', label: 'Dimensions', value: '45 x 35 x 15cm' }, { _key: '3', label: 'Origin', value: 'Made in Italy' }] },
 ];
 
 const mockProjects = [
@@ -40,10 +40,10 @@ export async function getProject(slug: string) {
 
 export async function getProducts() {
   if (isDev) return mockProducts;
-  return client.fetch(`*[_type == "product"] { name, slug, price, badge, category, description, gradient, label, specs, "imageUrl": image.asset->url }`);
+  return client.fetch(`*[_type == "product"] { name, slug, price, badge, category, description, label, specs, "imageUrl": image.asset->url, "imageUrl2": image2.asset->url, image2caption, "imageUrl3": image3.asset->url, image3caption }`);
 }
 
 export async function getProduct(slug: string) {
   if (isDev) return mockProducts.find(p => p.slug.current === slug) || null;
-  return client.fetch(`*[_type == "product" && slug.current == $slug][0]{ name, slug, price, badge, category, description, gradient, label, specs, "imageUrl": image.asset->url }`, { slug });
+  return client.fetch(`*[_type == "product" && slug.current == $slug][0]{ name, slug, price, badge, category, description, label, specs, "imageUrl": image.asset->url, "imageUrl2": image2.asset->url, image2caption, "imageUrl3": image3.asset->url, image3caption }`, { slug });
 }
