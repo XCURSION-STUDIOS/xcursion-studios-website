@@ -552,12 +552,44 @@ body {
 }
 
 @media (max-width: 768px) {
-  .site-nav { padding: 24px; }
+  /* Nav */
+  .site-nav { padding: 20px 24px; display: flex; }
   .nav-links { display: none; }
-  .page-body { padding: 100px 24px 40px; }
-  .section2 { padding: 60px 24px; }
+
+  /* Hero */
+  .hero-center { padding: 60px 20px 0; }
+  .hero-title-serif { font-size: clamp(36px, 12vw, 56px); white-space: normal; text-align: center; }
+  .hero-title-script { font-size: clamp(30px, 10vw, 46px); }
+  .hero-divider { width: 160px; margin: 20px auto; }
+  .hero-tagline { font-size: 14px; padding: 0 8px; }
+  .btn-row { flex-direction: column; align-items: center; gap: 10px; }
+  .btn-main, .btn-sec { width: 200px; text-align: center; }
+  .corner { display: none; }
+  .scroll-hint { display: none; }
+
+  /* Marquee */
+  .marquee-img { width: 120px; height: 72px; }
+
+  /* Feature sections */
+  .feature-inner { padding: 60px 20px; }
+  .s2-feature { grid-template-columns: 1fr; gap: 28px; }
+  .s2-feature-img { height: 220px; order: -1; }
+  .s2-feature--reverse .s2-feature-img { order: -1; }
+  .s2-feature .s2-feature-text { order: 1; }
+  .s2-title { font-size: clamp(28px, 8vw, 44px); }
+
+  /* About */
+  .about-grid { grid-template-columns: 1fr; gap: 40px; }
+  .about-details { border-left: none; padding-left: 0; border-top: 1px solid var(--gold-dim); padding-top: 32px; }
+
+  /* Page body */
+  .page-body { padding: 80px 20px 40px; }
+
+  /* Footer */
+  .site-footer { padding: 24px 20px; flex-direction: column; gap: 16px; text-align: center; }
+
+  /* Section grid */
   .s2-grid { grid-template-columns: 1fr; }
-  .site-footer { padding: 24px; flex-direction: column; gap: 16px; }
 }
 
 
@@ -659,7 +691,8 @@ body {
 .feature-section--bordered {
   border-top: 1px solid rgba(201,168,76,0.15);
 }
-.s2-feature--reverse { grid-column: 1 / -1; grid-template-columns: 1fr 1fr; } .s2-feature--reverse .s2-feature-img { order: -1; } 
+.s2-feature--reverse { grid-column: 1 / -1; grid-template-columns: 1fr 1fr; } .s2-feature--reverse .s2-feature-img { order: -1; }
+@media (max-width: 768px) { .s2-feature--reverse { grid-template-columns: 1fr; } .s2-feature--reverse .s2-feature-img { order: -1; } } 
 
 /* ─── SUB-PAGE HERO ─── */
 .page-hero {
