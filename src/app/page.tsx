@@ -98,7 +98,7 @@ export default function Home() {
           transition: 'opacity 1s ease 0.2s, transform 1s ease 0.2s',
         }}>
           <div className="hero-eyebrow">Creative Studio</div>
-          <div className="hero-title-stack" style={{ margin: "8px 0 0" }}><span className="hero-title-serif">XCURSION</span><span className="hero-title-script" style={{display:"none"}}>studios</span></div>
+          <div className="hero-title-stack" style={{ marginTop: "40px" }}><span className="hero-title-serif">XCURSION</span><span className="hero-title-script" style={{display:"none"}}>studios</span></div>
 
           <p className="hero-tagline">
             Built for the <em>restless</em>. A brand centred on<br />
