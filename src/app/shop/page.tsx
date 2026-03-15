@@ -12,7 +12,7 @@ export default function ShopPage() {
   return (
     <main className="page-body" style={{ padding: mobile ? '70px 0 40px' : '90px 0 80px' }}>
       <div className="s2-gridlines" style={{ position: 'fixed', inset: 0, pointerEvents: 'none', zIndex: 0 }} />
-      <div style={{ position: 'relative', height: mobile ? '320px' : '420px', overflow: 'hidden' }}>
+      <div style={{ position: 'relative', height: mobile ? '240px' : '420px', overflow: 'hidden' }}>
         <div style={{ position: 'absolute', inset: 0, backgroundImage: "url('/bg.png')", backgroundSize: 'cover', backgroundPosition: 'center', opacity: 0.15, mixBlendMode: 'luminosity', filter: 'grayscale(100%) contrast(1.4)' }} />
         <div style={{ position: 'relative', zIndex: 1, padding: mobile ? '40px 20px' : '60px 56px' }}>
           <div className="section-label" style={{ color: 'var(--gold)', letterSpacing: '0.35em' }}>Merch</div>
