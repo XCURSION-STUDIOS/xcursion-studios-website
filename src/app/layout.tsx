@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import Background from '@/components/Background';
-import Cursor from '@/components/Cursor';
 import Nav from '@/components/Nav';
 
 export const metadata: Metadata = {
@@ -19,7 +18,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body>
         <Background />
-        <Cursor />
         <Nav />
         {children}
       </body>
