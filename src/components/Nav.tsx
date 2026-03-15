@@ -23,7 +23,7 @@ export default function Nav() {
   const pathname = usePathname();
   const router = useRouter();
   const bp = useBreakpoint();
-  const mobile = bp === 'mobile';
+  const mobile = bp === 'mobile' || bp === 'tablet';
   const [open, setOpen] = useState(false);
 
   if (pathname.startsWith('/studio')) return null;
@@ -48,7 +48,7 @@ export default function Nav() {
     return (
       <>
         <nav className="site-nav" style={{ padding: '20px 24px', display: 'flex', justifyContent: 'center' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%', maxWidth: '500px' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}>
             <Link href="/" onClick={() => { window.scrollTo(0, 0); setOpen(false); }} className="nav-logo">
               <img src="/logo.png" alt="Xcursion" style={{ height: '28px', width: 'auto' }} />
             </Link>
