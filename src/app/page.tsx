@@ -99,7 +99,7 @@ export default function Home() {
         }}>
           <div className="hero-eyebrow">Creative Studio</div>
 
-          <div className="hero-title-stack"><span className="hero-title-serif">XCURSION</span><span className="hero-title-script" style={{position:"absolute",top:"50%",left:"50%",transform:"translate(-50%,-50%)"}}>studios</span></div>
+          <div className="hero-title-stack"><span className="hero-title-serif">XCURSION</span><span className="hero-title-script">studios</span></div>
 
           <div className="hero-divider" />
 
