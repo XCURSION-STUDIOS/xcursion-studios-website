@@ -3,6 +3,7 @@ export const dynamic = 'force-dynamic';
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { getPosts, getProducts, getProjects } from '@/sanity/queries';
+import HeroCanvas from '@/components/HeroCanvas';
 
 const MARQUEE_LABELS = [
   'Journal','Shop','Projects','Creative Studio','Est. 2024',
@@ -82,13 +83,9 @@ export default function Home() {
 
   return (
     <div className="home-page">
+      <HeroCanvas />
       {/* ── HERO ── */}
       <div className="hero" ref={heroRef}>
-        <div
-          ref={bgRef}
-          className="hero-bg-img"
-          style={{ backgroundImage: "url('/bg.gif')" }}
-        />
         <div className="hero-bg-overlay" />
         <div className="bg-grain" style={{ position: 'absolute', zIndex: 3 }} />
 
@@ -131,9 +128,6 @@ export default function Home() {
       </div>
       {/* ── JOURNAL SECTION ── */}
       <div className="feature-section">
-        <div className="feature-bg" style={{backgroundImage:"url('/bg.png')"}} />
-        <div className="feature-bg-overlay" />
-        <div className="s2-gridlines" />
         <div className="feature-inner reveal">
           <div className="s2-label">01 — Journal</div>
           <div className="s2-feature">
@@ -155,9 +149,6 @@ export default function Home() {
 
       {/* ── SHOP SECTION ── */}
       <div className="feature-section">
-        <div className="feature-bg" style={{backgroundImage:"url('/bg.png')"}} />
-        <div className="feature-bg-overlay" />
-        <div className="s2-gridlines" />
         <div className="feature-inner reveal">
           <div className="s2-label">02 — Shop</div>
           <div className="s2-feature s2-feature--reverse">
@@ -179,9 +170,6 @@ export default function Home() {
 
       {/* ── PROJECTS SECTION ── */}
       <div className="feature-section">
-        <div className="feature-bg" style={{backgroundImage:"url('/bg.png')"}} />
-        <div className="feature-bg-overlay" />
-        <div className="s2-gridlines" />
         <div className="feature-inner reveal">
           <div className="s2-label">03 — Projects</div>
           <div className="s2-feature">
@@ -204,9 +192,6 @@ export default function Home() {
       
       {/* ── ABOUT SECTION ── */}
       <div id="about" className="feature-section feature-section--bordered">
-        <div className="feature-bg" style={{backgroundImage:"url('/bg.png')"}} />
-        <div className="feature-bg-overlay" />
-        <div className="s2-gridlines" />
         <div className="feature-inner reveal">
           <div className="s2-label">About</div>
           <div className="about-grid">

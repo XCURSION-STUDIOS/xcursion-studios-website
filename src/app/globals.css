@@ -122,7 +122,7 @@ body {
 /* ─── HOMEPAGE ─── */
 .home-page {
   position: relative;
-  z-index: 3;
+  z-index: 2;
 }
 
 /* ─── HERO SECTION ─── */
@@ -132,7 +132,7 @@ body {
   display: flex;
   flex-direction: column;
   overflow-x: hidden;
-  background: var(--bg);
+  background: transparent;
 }
 
 .hero-bg-img {
@@ -297,7 +297,7 @@ body {
 
 /* ─── MARQUEE ─── */
 .marquee-wrap {
-  background: var(--bg);
+  background: transparent;
   overflow: hidden;
   border-top: 1px solid rgba(240,230,208,0.06);
 }
@@ -669,7 +669,7 @@ body {
   display: flex;
   align-items: center;
   overflow: hidden;
-  background: var(--bg);
+  background: transparent;
 }
 .feature-bg {
   position: absolute;
